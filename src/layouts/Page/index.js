@@ -68,11 +68,15 @@ const Page = (
               <h1 className={ styles.heading }>{ head.title }</h1>
               {
                 head.cta &&
-                <Link to={ head.cta.link }>
-                  <Button className={ styles.cta } light { ...head.cta.props }>
+                <Button
+                  component={ Link }
+                  to={ head.cta.link }
+                  className={ styles.cta }
+                  light
+                  { ...head.cta.props }
+                >
                     { head.cta.label }
-                  </Button>
-                </Link>
+                </Button>
               }
             </div>
           </div>
