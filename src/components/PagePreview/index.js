@@ -1,42 +1,63 @@
-import React, { PropTypes } from "react"
-import { Link } from "phenomic"
+/* eslint-disable react/prop-types */
 
-import Button from "../../components/Button"
+/**
+ * External dependencies
+ */
+import React from 'react'
+import {
+  compose,
+} from 'recompose'
+import {
+  Link
+} from 'phenomic'
 
-import styles from "./index.css"
+/**
+ * Internal dependencies
+ */
+import Button from '../../components/Button'
+import {
+  DateComponent,
+} from '../../components/DateTime'
 
-const PagePreview = ({ __url, title, date, description }) => {
-  const pageDate = date ? new Date(date) : null
+/**
+ * Module dependencies
+ */
+import {
+  pagePreviewPropTypes as withPropTypes,
+} from './prop-types'
 
-  return (
-    <div className={ styles.wrapper }>
-      <Link to={ __url } className={ styles.title }>
-        { title }
-      </Link>
-      <div className={ styles.meta }>
-        {
-          pageDate &&
-            <time key={ pageDate.toISOString() }>
-              { pageDate.toDateString() }
-            </time>
-        }
-      </div>
-      <div className={ styles.description }>
-        { description }
-        { " " }
-      </div>
-      <Link to={ __url } className={ styles.readMore }>
-        <Button secondary>{ "Read More →" }</Button>
-      </Link>
+/**
+ * Style dependencies
+ */
+import styles from './index.css'
+
+const PagePreview = ( { __url, title, date, description } ) => (
+  <div className={ styles.wrapper }>
+    <Link to={ __url } className={ styles.title }>
+      { title }
+    </Link>
+    <div className={ styles.meta }>
+      {
+        date && <DateComponent value={ new Date( date ) } />
+      }
     </div>
-  )
-}
+    <div className={ styles.description }>
+      { description }
+      { " " }
+    </div>
+    <Button
+      component={ Link }
+      to={ __url }
+      secondary
+      className={ styles.readMore }
+    >
+      { "Read More →" }
+    </Button>
+  </div>
+)
 
-PagePreview.propTypes = {
-  __url: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  date: PropTypes.string,
-  description: PropTypes.string,
-}
+const enhance = compose(
+  withPropTypes,
+)
 
-export default PagePreview
+export default enhance( PagePreview )

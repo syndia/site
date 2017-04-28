@@ -1,13 +1,34 @@
-import React, { PropTypes } from "react"
-import { Link } from "phenomic"
-import Svg from "react-svg-inline"
+/* eslint-disable react/prop-types */
 
-import twitterSvg from "../icons/iconmonstr-twitter-1.svg"
-import gitHubSvg from "../icons/iconmonstr-github-1.svg"
+/**
+ * External dependencies
+ */
+import React from 'react'
+import PropTypes from 'prop-types'
+import {
+  compose,
+  setDisplayName,
+  getContext,
+} from 'recompose'
+import { Link } from 'phenomic'
+import Svg from 'react-svg-inline'
 
-import styles from "./index.css"
+/**
+ * Internal dependencies
+ */
+import twitterSvg from '../icons/iconmonstr-twitter-1.svg'
+import gitHubSvg from '../icons/iconmonstr-github-1.svg'
 
-const Header = (props, { metadata: { pkg } }) => (
+/**
+ * Style dependencies
+ */
+import styles from './index.css'
+
+const getMetaData = getContext ( {
+  metadata: PropTypes.object.isRequired,
+} )
+
+const Header = ( { metadata: { pkg } } ) => (
   <header className={ styles.header }>
     <nav className={ styles.nav }>
       <div className={ styles.navPart1 }>
@@ -22,7 +43,7 @@ const Header = (props, { metadata: { pkg } }) => (
         {
           pkg.twitter &&
           <a
-            href={ `https://twitter.com/${pkg.twitter}` }
+            href={ `https://twitter.com/${ pkg.twitter }` }
             className={ styles.link }
           >
             <Svg svg={ twitterSvg } cleanup />
@@ -44,8 +65,10 @@ const Header = (props, { metadata: { pkg } }) => (
   </header>
 )
 
-Header.contextTypes = {
-  metadata: PropTypes.object.isRequired,
-}
+const enhance = compose(
+  setDisplayName( 'MetaDataContext' ),
+  getMetaData,
+  //setDisplayName( 'Header' ),
+)
 
-export default Header
+export default enhance( Header )

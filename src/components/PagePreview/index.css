@@ -28,6 +28,6 @@
   border-radius: 3px;
   font-size: 0.8rem;
   text-align: center;
-  border-bottom: 0 !important;
+  /* border-bottom: 0 !important; */
   text-decoration: none !important;
 }

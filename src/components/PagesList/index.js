@@ -1,10 +1,31 @@
-import React, { PropTypes } from "react"
+/* eslint-disable react/prop-types */
 
-import PagePreview from "../PagePreview"
+/**
+ * External dependenies
+ */
+import React from 'react'
+import {
+  compose,
+} from 'recompose'
 
+/**
+ * Internal dependencies
+ */
+import PagePreview from '../PagePreview'
+
+/**
+ * Module dependencies
+ */
+import {
+  pagesListPropTypes as withPropTypes,
+} from './prop-types'
+
+/**
+ * Style dependencies
+ */
 import styles from "./index.css"
 
-const PagesList = ({ pages }) => {
+const PagesList = ( { pages } ) => {
   return (
     <div>
       {
@@ -12,7 +33,7 @@ const PagesList = ({ pages }) => {
       ? (
         <ul className={ styles.list }>
           {
-          pages.map((page) => (
+          pages.map( page => (
             <li key={ page.title }><PagePreview { ...page } /></li>
           ))
         }
@@ -24,8 +45,8 @@ const PagesList = ({ pages }) => {
   )
 }
 
-PagesList.propTypes = {
-  pages: PropTypes.array.isRequired,
-}
+const enhance = compose(
+  withPropTypes,
+)
 
-export default PagesList
+export default enhance( PagesList )

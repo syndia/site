@@ -1,7 +1,29 @@
-import React, { PropTypes } from "react"
-import Helmet from "react-helmet"
+/* eslint-disable react/prop-types */
 
-const DefaultHeadMeta = (props, { metadata: { pkg } }) => (
+/**
+ * External dependencies
+ */
+import React from 'react'
+import PropTypes from 'prop-types'
+import {
+  compose,
+  setDisplayName,
+  getContext,
+} from 'recompose'
+import Helmet from 'react-helmet'
+
+/**
+ * Module dependencies
+ */
+import {
+  defaultHeadMetaPropTypes as withPropTypes,
+} from './prop-types'
+
+const getMetaData = getContext ( {
+  metadata: PropTypes.object.isRequired,
+} )
+
+const DefaultHeadMeta = ( { metadata: { pkg }, ...props } ) => (
   <div hidden>
     <Helmet
       meta={ [
@@ -30,13 +52,11 @@ const DefaultHeadMeta = (props, { metadata: { pkg } }) => (
   </div>
 )
 
-DefaultHeadMeta.propTypes = {
-  meta: React.PropTypes.arrayOf(React.PropTypes.object),
-  scripts: React.PropTypes.arrayOf(React.PropTypes.object),
-}
+const enhance = compose(
+  setDisplayName( 'MetaDataContext' ),
+  getMetaData,
+  setDisplayName( 'DefaultHeadMeta' ),
+  withPropTypes,
+)
 
-DefaultHeadMeta.contextTypes = {
-  metadata: PropTypes.object.isRequired,
-}
-
-export default DefaultHeadMeta
+export default enhance( DefaultHeadMeta )

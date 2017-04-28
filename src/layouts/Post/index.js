@@ -1,38 +1,55 @@
-import React, { PropTypes } from "react"
+/* eslint-disable react/prop-types */
 
-import LatestPosts from "../../components/LatestPosts"
-import Page from "../Page"
+/**
+ * Internal dependencies
+ */
+import React from 'react'
+import {
+  compose,
+} from 'recompose'
 
-import styles from "./index.css"
+/**
+ * Internal dependencies
+ */
+import {
+  DateComponent,
+} from '../../components/DateTime'
+import LatestPosts from '../../components/LatestPosts'
+import Page from '../Page'
 
-const Post = (props) => {
-  // it's up to you to choose what to do with this layout ;)
-  const pageDate = props.head.date ? new Date(props.head.date) : null
+/**
+ * Module dependencies
+ */
+import {
+  postPropTypes as withPropTypes,
+} from './prop-types'
 
-  return (
-    <Page
-      { ...props }
-      header={
-        <div>
-          <header className={ styles.header }>
-            {
-              pageDate &&
-              <time key={ pageDate.toISOString() }>
-                { pageDate.toDateString() }
-              </time>
-            }
-          </header>
-        </div>
-      }
-    >
-      <hr />
-      <LatestPosts />
-    </Page>
-  )
-}
+/**
+ * Style dependencies
+ */
+import styles from './index.css'
 
-Post.propTypes = {
-  head: PropTypes.object.isRequired,
-}
+const Post = props => (
+  <Page
+    { ...props }
+    header={
+      <div>
+        <header className={ styles.header }>
+          {
+            props.head.date &&
+              <DateComponent value={ new Date( props.head.date ) } />
+          }
+        </header>
+      </div>
+    }
+  >
+    <hr />
+    <LatestPosts />
+  </Page>
+)
 
-export default Post
+const enhance = compose(
+  withPropTypes,
+)
+
+export default enhance( Post )
