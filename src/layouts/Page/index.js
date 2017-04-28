@@ -8,7 +8,6 @@ import {
   compose,
   getContext,
   setDisplayName,
-  setPropTypes,
 } from 'recompose'
 import warning from 'warning'
 import {
@@ -25,22 +24,14 @@ import Loading from '../../components/Loading'
  */
 import Meta from './components/Meta'
 import Hero from './components/Hero'
+import {
+  pagePropTypes as withPropTypes,
+} from './prop-types'
 
 /**
  * Style dependencies
  */
 import styles from './index.css'
-
-const propTypes = {
-  children: PropTypes.node,
-  isLoading: PropTypes.bool,
-  __filename: PropTypes.string,
-  __url: PropTypes.string,
-  head: PropTypes.object.isRequired,
-  body: PropTypes.string,
-  header: PropTypes.element,
-  footer: PropTypes.element,
-}
 
 const getMetaData = getContext ( {
   metadata: PropTypes.object.isRequired,
@@ -60,7 +51,7 @@ const Page = (
   },
 ) => {
   warning(
-    typeof head.title === "string",
+    typeof head.title === 'string',
     `Your page '${ __filename }' needs a title`
   )
 
@@ -91,7 +82,8 @@ const Page = (
 }
 
 export default compose(
+  setDisplayName( 'MetaDataContext' ),
   getMetaData,
   setDisplayName( 'Page' ),
-  setPropTypes( propTypes ),
+  withPropTypes,
 )( Page )

@@ -1,8 +1,31 @@
-import React, { PropTypes } from "react"
+/* eslint-disable react/prop-types */
 
-import Page from "../Page"
+/**
+ * External dependencies
+ */
+import React from 'react'
+import {
+  compose,
+  defaultProps,
+  setDisplayName,
+} from 'recompose'
 
-import styles from "./index.css"
+/**
+ * Internal dependencies
+ */
+import Page from '../Page'
+
+/**
+ * Module dependencies
+ */
+import {
+  pageErrorPropTypes as withPropTypes,
+} from './prop-types'
+
+/**
+ * Style dependencies
+ */
+import styles from './index.css'
 
 const PageError = ({ error, errorText }) => (
   <Page
@@ -33,14 +56,13 @@ const PageError = ({ error, errorText }) => (
   </Page>
 )
 
-PageError.propTypes = {
-  error: PropTypes.oneOfType([ PropTypes.number, PropTypes.string ]),
-  errorText: PropTypes.string,
-}
+const enhance = compose(
+  setDisplayName( 'PageError' ),
+  withPropTypes,
+  defaultProps( {
+    error: 404,
+    errorText: 'Page Not Found',
+  } ),
+)
 
-PageError.defaultProps = {
-  error: 404,
-  errorText: "Page Not Found",
-}
-
-export default PageError
+export default enhance( PageError )

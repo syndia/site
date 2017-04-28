@@ -1,6 +1,12 @@
-import React from "react"
+/**
+ * External dependencies
+ */
+import React from 'react'
 
-import styles from "./index.css"
+/**
+ * Style dependencies
+ */
+import styles from './index.css'
 
 const Footer = () => (
   <footer className={ styles.footer }>
@@ -27,7 +33,7 @@ const Footer = () => (
         rel="nooper noreferrer"
       >
         <span className={ styles.footerReferenceName }>
-          {  `<${ process.env.PHENOMIC_NAME} />` }
+          {  `<${ process.env.PHENOMIC_NAME } />` }
         </span>
       </a>
     </p>

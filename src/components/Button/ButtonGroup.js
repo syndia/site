@@ -7,7 +7,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {
   compose,
-  setPropTypes,
   withContext,
 } from 'recompose'
 import cx from 'classnames'
@@ -15,12 +14,13 @@ import cx from 'classnames'
 /**
  * Module dependencies
  */
+import {
+  buttonGroupPropTypes as withPropTypes,
+} from './prop-types'
+/**
+ * Style dependencies
+ */
 import styles from './index.css'
-
-const propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node,
-}
 
 const ButtonGroup = ( {
   className,
@@ -40,7 +40,7 @@ const ButtonGroup = ( {
 }
 
 export default compose(
-  setPropTypes( propTypes ),
+  withPropTypes,
   withContext(
     { buttonGroup: PropTypes.bool },
     ( /* props */ ) => ( { buttonGroup: true } ),

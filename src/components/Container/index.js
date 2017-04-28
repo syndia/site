@@ -1,15 +1,33 @@
-import React, { PropTypes } from "react"
+/* eslint-disable react/prop-types */
 
-import styles from "./index.css"
+/**
+ * External dependencies
+ */
+import React from 'react'
+import {
+  compose,
+} from 'recompose'
 
-const Container = (props) => (
+/**
+ * Module dependencies
+ */
+import {
+  containerPropTypes as withPropTypes,
+} from './prop-types'
+
+/**
+ * Style dependencies
+ */
+import styles from './index.css'
+
+const Container = props => (
   <div className={ styles.container }>
     { props.children }
   </div>
 )
 
-Container.propTypes = {
-  children: PropTypes.node,
-}
+const enhance = compose(
+  withPropTypes,
+)
 
-export default Container
+export default enhance( Container )

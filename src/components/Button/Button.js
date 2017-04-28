@@ -10,7 +10,6 @@ import {
   getContext,
   mapProps,
   setDisplayName,
-  setPropTypes,
 } from 'recompose'
 import {
   omit,
@@ -20,26 +19,27 @@ import cx from 'classnames'
 /**
  * Module dependencies
  */
-import styles from './index.css'
+import {
+  buttonPropTypes as withPropTypes,
+} from './prop-types'
 
-const propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  big: PropTypes.bool,
-  buttonGroup: PropTypes.bool,
-  light: PropTypes.bool,
-  secondary: PropTypes.bool,
-}
+/**
+ * Style dependencies
+ */
+import styles from './index.css'
 
 const getButtonGroup = getContext( {
   buttonGroup: PropTypes.bool,
 } )
 
 const enhance = compose(
+  setDisplayName( 'ButtonGroupContext' ),
   getButtonGroup,
   setDisplayName( 'Button' ),
-  setPropTypes( propTypes ),
-  defaultProps( { component: 'button' } ),
+  withPropTypes,
+  defaultProps( {
+    component: 'button',
+  } ),
   mapProps( props => omit( props, 'buttonGroup' ) ),
   mapProps( ( {
     big, light, secondary,

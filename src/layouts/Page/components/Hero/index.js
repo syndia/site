@@ -4,12 +4,10 @@
  * External dependencies
  */
 import React from 'react'
-import PropTypes from 'prop-types'
 import {
   compose,
-  defaultProps as setDefaultProps,
+  defaultProps,
   setDisplayName,
-  setPropTypes,
 } from 'recompose'
 import {
   Link
@@ -24,19 +22,15 @@ import Button from '../../../../components/Button'
  * Module dependencies
  */
 import ScrollDownButton from './ScrollDownButton'
+import {
+  heroPropTypes as withPropTypes,
+} from '../../prop-types'
+
+/**
+ * Style dependencies
+ */
 import pageStyles from '../../index.css'
 import styles from './index.css'
-
-const propTypes = {
-  children: PropTypes.any,
-  cta: PropTypes.object,
-  fullscreen: PropTypes.bool,
-  title: PropTypes.string,
-}
-
-const defaultProps = {
-  fullscreen: false,
-}
 
 const Hero = ( { children, head, fullscreen } ) => (
   <div
@@ -75,8 +69,12 @@ const Hero = ( { children, head, fullscreen } ) => (
   </div>
 )
 
-export default compose(
+const enhance = compose(
   setDisplayName( 'Hero' ),
-  setPropTypes( propTypes ),
-  setDefaultProps( defaultProps ),
-)( Hero )
+  withPropTypes,
+  defaultProps( {
+    fullscreen: false,
+  } ),
+)
+
+export default enhance( Hero )

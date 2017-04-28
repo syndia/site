@@ -1,9 +1,12 @@
+/* eslint-disable react/prop-types */
+
 /**
  * External dependencies
  */
 import React from 'react'
-import PropTypes from 'prop-types'
-import {} from 'recompose'
+import {
+  compose,
+} from 'recompose'
 import {
   Link
 } from 'phenomic'
@@ -15,6 +18,13 @@ import Button from '../../components/Button'
 import {
   DateComponent,
 } from '../../components/DateTime'
+
+/**
+ * Module dependencies
+ */
+import {
+  pagePreviewPropTypes as withPropTypes,
+} from './prop-types'
 
 /**
  * Style dependencies
@@ -46,11 +56,8 @@ const PagePreview = ( { __url, title, date, description } ) => (
   </div>
 )
 
-PagePreview.propTypes = {
-  __url: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  date: PropTypes.string,
-  description: PropTypes.string,
-}
+const enhance = compose(
+  withPropTypes,
+)
 
-export default PagePreview
+export default enhance( PagePreview )

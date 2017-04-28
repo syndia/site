@@ -1,8 +1,12 @@
+/* eslint-disable react/prop-types */
+
 /**
  * Internal dependencies
  */
 import React from 'react'
-import PropTypes from 'prop-types'
+import {
+  compose,
+} from 'recompose'
 
 /**
  * Internal dependencies
@@ -14,11 +18,18 @@ import LatestPosts from '../../components/LatestPosts'
 import Page from '../Page'
 
 /**
+ * Module dependencies
+ */
+import {
+  postPropTypes as withPropTypes,
+} from './prop-types'
+
+/**
  * Style dependencies
  */
 import styles from './index.css'
 
-const Post = ( props ) => (
+const Post = props => (
   <Page
     { ...props }
     header={
@@ -37,8 +48,8 @@ const Post = ( props ) => (
   </Page>
 )
 
-Post.propTypes = {
-  head: PropTypes.object.isRequired,
-}
+const enhance = compose(
+  withPropTypes,
+)
 
-export default Post
+export default enhance( Post )
