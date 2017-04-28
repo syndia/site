@@ -72,9 +72,9 @@ const Page = (
        pkg={ pkg }
       />
       {
-        <Hero head={ head }/>
+        <Hero fullscreen={ head.fullscreen } head={ head } />
       }
-      <div className={ styles.wrapper + " " + styles.pageContent }>
+      <div id="content" className={ styles.wrapper + " " + styles.pageContent }>
         { header }
         <div className={ styles.body }>
           {

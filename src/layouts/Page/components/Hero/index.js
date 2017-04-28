@@ -23,6 +23,7 @@ import Button from '../../../../components/Button'
 /**
  * Module dependencies
  */
+import ScrollDownButton from './ScrollDownButton'
 import pageStyles from '../../index.css'
 import styles from './index.css'
 
@@ -37,14 +38,22 @@ const defaultProps = {
   fullscreen: false,
 }
 
-const Hero = ( { children, head } ) => (
+const Hero = ( { children, head, fullscreen } ) => (
   <div
     className={ styles.hero }
     style={ head.hero && {
+      width: fullscreen && '100%',
+      height: fullscreen && '100vh',
       background: `#111 url(${ head.hero }) 50% 50% / cover`,
     } }
   >
-    <div className={ styles.header }>
+    <div
+      className={ styles.header }
+      style={ head.hero && {
+        height: fullscreen && '100%',
+        padding: fullscreen && '30vh',
+      } }
+    >
       <div className={ pageStyles.wrapper }>
         <h1 className={ styles.heading }>{ head.title }</h1>
         {
@@ -60,6 +69,7 @@ const Hero = ( { children, head } ) => (
           </Button>
        }
        { children }
+       { fullscreen && <ScrollDownButton /> }
       </div>
     </div>
   </div>

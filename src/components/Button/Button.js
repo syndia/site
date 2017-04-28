@@ -55,6 +55,7 @@ const enhance = compose(
 
     return {
       ...rest,
+      className: typeof children !== 'string' ? className : '',
       children: typeof children === 'string'
         ? <span className={ classes } role="button">{ children }</span>
         : children,
