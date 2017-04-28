@@ -1,41 +1,50 @@
-import React, { PropTypes } from "react"
-import { Link } from "phenomic"
+/**
+ * External dependencies
+ */
+import React from 'react'
+import PropTypes from 'prop-types'
+import {} from 'recompose'
+import {
+  Link
+} from 'phenomic'
 
-import Button from "../../components/Button"
+/**
+ * Internal dependencies
+ */
+import Button from '../../components/Button'
+import {
+  DateComponent,
+} from '../../components/DateTime'
 
-import styles from "./index.css"
+/**
+ * Style dependencies
+ */
+import styles from './index.css'
 
-const PagePreview = ({ __url, title, date, description }) => {
-  const pageDate = date ? new Date(date) : null
-
-  return (
-    <div className={ styles.wrapper }>
-      <Link to={ __url } className={ styles.title }>
-        { title }
-      </Link>
-      <div className={ styles.meta }>
-        {
-          pageDate &&
-            <time key={ pageDate.toISOString() }>
-              { pageDate.toDateString() }
-            </time>
-        }
-      </div>
-      <div className={ styles.description }>
-        { description }
-        { " " }
-      </div>
-      <Button
-        component={ Link }
-        to={ __url }
-        secondary
-        className={ styles.readMore }
-      >
-        { "Read More →" }
-      </Button>
+const PagePreview = ( { __url, title, date, description } ) => (
+  <div className={ styles.wrapper }>
+    <Link to={ __url } className={ styles.title }>
+      { title }
+    </Link>
+    <div className={ styles.meta }>
+      {
+        date && <DateComponent value={ new Date( date ) } />
+      }
     </div>
-  )
-}
+    <div className={ styles.description }>
+      { description }
+      { " " }
+    </div>
+    <Button
+      component={ Link }
+      to={ __url }
+      secondary
+      className={ styles.readMore }
+    >
+      { "Read More →" }
+    </Button>
+  </div>
+)
 
 PagePreview.propTypes = {
   __url: PropTypes.string.isRequired,
