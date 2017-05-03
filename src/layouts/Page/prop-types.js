@@ -6,7 +6,7 @@ import {
   setPropTypes,
 } from 'recompose'
 
-export const pagePropTypes = setPropTypes( {
+export default setPropTypes( {
   children: PropTypes.node,
   isLoading: PropTypes.bool,
   __filename: PropTypes.string,
@@ -15,10 +15,4 @@ export const pagePropTypes = setPropTypes( {
   body: PropTypes.string,
   header: PropTypes.element,
   footer: PropTypes.element,
-} )
-
-export const heroPropTypes = setPropTypes( {
-  children: PropTypes.any,
-  fullscreen: PropTypes.bool,
-  head: PropTypes.object,
 } )

@@ -5,8 +5,10 @@
  */
 import React from 'react'
 import {
+  branch,
   compose,
   defaultProps,
+  renderNothing,
   setDisplayName,
 } from 'recompose'
 import {
@@ -22,15 +24,25 @@ import Button from '../../../../components/Button'
  * Module dependencies
  */
 import ScrollDownButton from './ScrollDownButton'
-import {
-  heroPropTypes as withPropTypes,
-} from '../../prop-types'
+import withPropTypes from './prop-types'
 
 /**
  * Style dependencies
  */
 import pageStyles from '../../index.css'
 import styles from './index.css'
+
+const enhance = compose(
+  setDisplayName( 'Hero' ),
+  withPropTypes,
+  defaultProps( {
+    fullscreen: false,
+  } ),
+  branch(
+    ( { head: { hero } } ) => ! hero,
+    renderNothing,
+  )
+)
 
 const Hero = ( { children, head, fullscreen } ) => (
   <div
@@ -67,14 +79,6 @@ const Hero = ( { children, head, fullscreen } ) => (
       </div>
     </div>
   </div>
-)
-
-const enhance = compose(
-  setDisplayName( 'Hero' ),
-  withPropTypes,
-  defaultProps( {
-    fullscreen: false,
-  } ),
 )
 
 export default enhance( Hero )

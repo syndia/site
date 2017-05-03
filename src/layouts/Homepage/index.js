@@ -6,13 +6,23 @@ import React from 'react'
 /**
  * Internal dependencies
  */
-import LatestPosts from '../../components/LatestPosts'
 import Page from '../Page'
+import {
+  Header,
+  Footer,
+  Main,
+} from '../../components/Section'
+import LatestPosts from '../../components/LatestPosts'
 
 const Homepage = props => (
-  <Page { ...props }>
+  <div>
+    <Header />
+    <Main>
+      <Page { ...props } />
+    </Main>
     <LatestPosts />
-  </Page>
+    <Footer />
+  </div>
 )
 
 export default Homepage

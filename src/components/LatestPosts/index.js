@@ -3,10 +3,9 @@
 /**
  * External dependencies
  */
-import React, { PropTypes } from 'react'
+import React from 'react'
 import {
   compose,
-  getContext,
   setDisplayName,
 } from 'recompose'
 import enhanceCollection from 'phenomic/lib/enhance-collection'
@@ -14,14 +13,15 @@ import enhanceCollection from 'phenomic/lib/enhance-collection'
 /**
  * Internal dependencies
  */
+import {
+  getCollectionContext,
+} from '../../helpers/phenomic'
 import PagesList from '../../components/PagesList'
 
 /**
  * Module dependencies
  */
-import {
-  latestPostsPropTypes as withPropTypes,
-} from './prop-types'
+import withPropTypes from './prop-types'
 
 /**
  * Style dependencies
@@ -30,9 +30,12 @@ import styles from './index.css'
 
 const defaultNumberOfPosts = 6
 
-const getCollection = getContext ( {
-  collection: PropTypes.array.isRequired,
-} )
+const enhance = compose(
+  getCollectionContext,
+
+  setDisplayName( 'LatestPost' ),
+  withPropTypes,
+)
 
 const LatestPosts = ( { collection, ...props } ) => {
   const latestPosts = enhanceCollection( collection, {
@@ -51,13 +54,5 @@ const LatestPosts = ( { collection, ...props } ) => {
     </div>
   )
 }
-
-const enhance = compose(
-  setDisplayName( 'CollectionContext' ),
-  getCollection,
-
-  setDisplayName( 'LatestPost' ),
-  withPropTypes,
-)
 
 export default enhance( LatestPosts )

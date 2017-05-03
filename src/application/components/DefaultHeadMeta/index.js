@@ -4,24 +4,30 @@
  * External dependencies
  */
 import React from 'react'
-import PropTypes from 'prop-types'
 import {
   compose,
   setDisplayName,
-  getContext,
 } from 'recompose'
 import Helmet from 'react-helmet'
 
 /**
- * Module dependencies
+ * Internal dependencies
  */
 import {
-  defaultHeadMetaPropTypes as withPropTypes,
-} from './prop-types'
+  getMetaDataContext,
+} from '../../../helpers/phenomic'
 
-const getMetaData = getContext ( {
-  metadata: PropTypes.object.isRequired,
-} )
+/**
+ * Module dependencies
+ */
+import withPropTypes from './prop-types'
+
+const enhance = compose(
+  getMetaDataContext,
+
+  setDisplayName( 'DefaultHeadMeta' ),
+  withPropTypes,
+)
 
 const DefaultHeadMeta = ( { metadata: { pkg }, ...props } ) => (
   <div hidden>
@@ -50,13 +56,6 @@ const DefaultHeadMeta = ( { metadata: { pkg }, ...props } ) => (
     />
     <style>{ "@-ms-viewport { width: device-width; }" }</style>
   </div>
-)
-
-const enhance = compose(
-  setDisplayName( 'MetaDataContext' ),
-  getMetaData,
-  setDisplayName( 'DefaultHeadMeta' ),
-  withPropTypes,
 )
 
 export default enhance( DefaultHeadMeta )

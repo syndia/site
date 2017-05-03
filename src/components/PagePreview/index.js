@@ -22,14 +22,16 @@ import {
 /**
  * Module dependencies
  */
-import {
-  pagePreviewPropTypes as withPropTypes,
-} from './prop-types'
+import withPropTypes from './prop-types'
 
 /**
  * Style dependencies
  */
 import styles from './index.css'
+
+const enhance = compose(
+  withPropTypes,
+)
 
 const PagePreview = ( { __url, title, date, description } ) => (
   <div className={ styles.wrapper }>
@@ -54,10 +56,6 @@ const PagePreview = ( { __url, title, date, description } ) => (
       { "Read More →" }
     </Button>
   </div>
-)
-
-const enhance = compose(
-  withPropTypes,
 )
 
 export default enhance( PagePreview )

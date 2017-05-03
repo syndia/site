@@ -4,19 +4,18 @@
  * External dependenies
  */
 import React from 'react'
-import PropTypes from 'prop-types'
 import {
   compose,
-  withContext,
 } from 'recompose'
 import cx from 'classnames'
 
 /**
  * Module dependencies
  */
+import withPropTypes from './prop-types'
 import {
-  buttonGroupPropTypes as withPropTypes,
-} from './prop-types'
+  withButtonGroupContext as withContext,
+} from './context'
 /**
  * Style dependencies
  */
@@ -41,8 +40,5 @@ const ButtonGroup = ( {
 
 export default compose(
   withPropTypes,
-  withContext(
-    { buttonGroup: PropTypes.bool },
-    ( /* props */ ) => ( { buttonGroup: true } ),
-  ),
+  withContext,
 )( ButtonGroup )

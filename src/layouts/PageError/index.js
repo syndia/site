@@ -14,47 +14,22 @@ import {
  * Internal dependencies
  */
 import Page from '../Page'
+import {
+  Main,
+} from '../../components/Section'
+import {
+  GoBackButton,
+} from '../../components/Button'
 
 /**
  * Module dependencies
  */
-import {
-  pageErrorPropTypes as withPropTypes,
-} from './prop-types'
+import withPropTypes from './prop-types'
 
 /**
  * Style dependencies
  */
 import styles from './index.css'
-
-const PageError = ({ error, errorText }) => (
-  <Page
-    head={{
-      // hero credit: https://www.flickr.com/photos/mypubliclands/16101654539/
-      hero: "https://farm8.staticflickr.com/7559/16101654539_bee5151340_k.jpg",
-    }}
-  >
-    <div className={ styles.container }>
-      <div className={ styles.oops }>{ "😱 Oooops!" }</div>
-      <div className={ styles.text }>
-        <p className={ styles.title }>
-          <strong>{ error }</strong>
-          { " " }
-          { errorText }
-        </p>
-        {
-          error === 404 &&
-          <div>
-            { "It seems you found a broken link. " }
-            { "Sorry about that. " }
-            <br />
-            { "Do not hesitate to report this page 😁." }
-          </div>
-        }
-      </div>
-    </div>
-  </Page>
-)
 
 const enhance = compose(
   setDisplayName( 'PageError' ),
@@ -63,6 +38,40 @@ const enhance = compose(
     error: 404,
     errorText: 'Page Not Found',
   } ),
+)
+
+const PageError = ( { error, errorText } ) => (
+  <Page
+    head={ {
+      title: 'Error',
+      fullscreen: true,
+    } }
+  >
+    <Main>
+      <div className={ styles.container }>
+        <div className={ styles.oops }>
+          { "Waiting " }<em>{ "for this" }</em>{ " page..." }
+          <br />
+          <span>{ "...is like sunshine at night" }</span>
+        </div>
+        <div className={ styles.text }>
+          <p className={ styles.title }>
+            <strong>{ error }</strong>
+            { " " }
+            { errorText }
+          </p>
+          {
+            error === 404 &&
+            <div>
+              { "Sorry about that. " }
+              { " Do not hesitate to report this page." }
+            </div>
+          }
+        </div>
+      </div>
+      <GoBackButton className={ styles.goBackButton } />
+    </Main>
+  </Page>
 )
 
 export default enhance( PageError )

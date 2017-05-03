@@ -2,12 +2,10 @@
  * External dependenies
  */
 import React from "react"
-import PropTypes from 'prop-types'
 import {
   componentFromProp,
   compose,
   defaultProps,
-  getContext,
   mapProps,
   setDisplayName,
 } from 'recompose'
@@ -20,21 +18,17 @@ import cx from 'classnames'
  * Module dependencies
  */
 import {
-  buttonPropTypes as withPropTypes,
-} from './prop-types'
+  getButtonGroupContext,
+} from './ButtonGroup/context'
+import withPropTypes from './prop-types'
 
 /**
  * Style dependencies
  */
 import styles from './index.css'
 
-const getButtonGroup = getContext( {
-  buttonGroup: PropTypes.bool,
-} )
-
 const enhance = compose(
-  setDisplayName( 'ButtonGroupContext' ),
-  getButtonGroup,
+  getButtonGroupContext,
   setDisplayName( 'Button' ),
   withPropTypes,
   defaultProps( {

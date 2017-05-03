@@ -6,16 +6,11 @@ import {
   setPropTypes,
 } from 'recompose'
 
-export const buttonPropTypes = setPropTypes( {
+export default setPropTypes( {
   children: PropTypes.node,
   className: PropTypes.string,
   big: PropTypes.bool,
   buttonGroup: PropTypes.bool,
   light: PropTypes.bool,
   secondary: PropTypes.bool,
-} )
-
-export const buttonGroupPropTypes = setPropTypes( {
-  className: PropTypes.string,
-  children: PropTypes.node,
 } )

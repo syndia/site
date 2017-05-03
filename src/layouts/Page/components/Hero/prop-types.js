@@ -6,6 +6,8 @@ import {
   setPropTypes,
 } from 'recompose'
 
-export const contentPropTypes = setPropTypes( {
-  children: PropTypes.node,
+export default setPropTypes( {
+  children: PropTypes.any,
+  fullscreen: PropTypes.bool,
+  head: PropTypes.object,
 } )

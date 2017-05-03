@@ -3,10 +3,9 @@
 /**
  * External dependencies
  */
-import React, { PropTypes } from 'react'
+import React from 'react'
 import {
   compose,
-  getContext,
   setDisplayName,
 } from 'recompose'
 import warning from 'warning'
@@ -17,6 +16,7 @@ import {
 /**
  * Internal dependencies
  */
+import { getMetaDataContext } from '../../helpers/phenomic'
 import Loading from '../../components/Loading'
 
 /**
@@ -24,18 +24,12 @@ import Loading from '../../components/Loading'
  */
 import Meta from './components/Meta'
 import Hero from './components/Hero'
-import {
-  pagePropTypes as withPropTypes,
-} from './prop-types'
+import withPropTypes from './prop-types'
 
 /**
  * Style dependencies
  */
 import styles from './index.css'
-
-const getMetaData = getContext ( {
-  metadata: PropTypes.object.isRequired,
-} )
 
 const Page = (
   {
@@ -56,7 +50,7 @@ const Page = (
   )
 
   return (
-    <div className={ styles.page }>
+    <div className={ styles.default }>
       <Meta
         __url={ __url }
        head={ head }
@@ -82,8 +76,7 @@ const Page = (
 }
 
 export default compose(
-  setDisplayName( 'MetaDataContext' ),
-  getMetaData,
+  getMetaDataContext,
   setDisplayName( 'Page' ),
   withPropTypes,
 )( Page )

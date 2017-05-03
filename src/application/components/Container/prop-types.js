@@ -6,6 +6,6 @@ import {
   setPropTypes,
 } from 'recompose'
 
-export const containerPropTypes = setPropTypes( {
+export default setPropTypes( {
   children: PropTypes.node,
 } )

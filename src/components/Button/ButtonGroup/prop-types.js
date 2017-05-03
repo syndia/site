@@ -7,8 +7,6 @@ import {
 } from 'recompose'
 
 export default setPropTypes( {
-  __url: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  date: PropTypes.string,
-  description: PropTypes.string,
+  className: PropTypes.string,
+  children: PropTypes.node,
 } )

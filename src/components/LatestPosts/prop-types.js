@@ -6,6 +6,6 @@ import {
   setPropTypes,
 } from 'recompose'
 
-export const latestPostsPropTypes = setPropTypes( {
+export default setPropTypes( {
   numberOfPosts: PropTypes.number,
 } )

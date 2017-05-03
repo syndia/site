@@ -6,7 +6,7 @@ import {
   setPropTypes,
 } from 'recompose'
 
-export const pageErrorPropTypes = setPropTypes( {
+export default setPropTypes( {
   error: PropTypes.oneOfType([ PropTypes.number, PropTypes.string ]),
   errorText: PropTypes.string,
 } )

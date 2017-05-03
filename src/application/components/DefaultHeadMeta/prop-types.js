@@ -6,7 +6,7 @@ import {
   setPropTypes,
 } from 'recompose'
 
-export const defaultHeadMetaPropTypes = setPropTypes( {
+export default setPropTypes( {
   meta: PropTypes.arrayOf( PropTypes.object ),
   scripts:  PropTypes.arrayOf( PropTypes.object ),
 } )

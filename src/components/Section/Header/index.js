@@ -4,11 +4,8 @@
  * External dependencies
  */
 import React from 'react'
-import PropTypes from 'prop-types'
 import {
   compose,
-  setDisplayName,
-  getContext,
 } from 'recompose'
 import { Link } from 'phenomic'
 import Svg from 'react-svg-inline'
@@ -16,17 +13,21 @@ import Svg from 'react-svg-inline'
 /**
  * Internal dependencies
  */
-import twitterSvg from '../icons/iconmonstr-twitter-1.svg'
-import gitHubSvg from '../icons/iconmonstr-github-1.svg'
+import {
+  getMetaDataContext,
+} from '../../../helpers/phenomic'
+
+import twitterSvg from '../../icons/iconmonstr-twitter-1.svg'
+import gitHubSvg from '../../icons/iconmonstr-github-1.svg'
 
 /**
  * Style dependencies
  */
 import styles from './index.css'
 
-const getMetaData = getContext ( {
-  metadata: PropTypes.object.isRequired,
-} )
+const enhance = compose(
+  getMetaDataContext,
+)
 
 const Header = ( { metadata: { pkg } } ) => (
   <header className={ styles.header }>
@@ -63,12 +64,6 @@ const Header = ( { metadata: { pkg } } ) => (
       </div>
     </nav>
   </header>
-)
-
-const enhance = compose(
-  setDisplayName( 'MetaDataContext' ),
-  getMetaData,
-  //setDisplayName( 'Header' ),
 )
 
 export default enhance( Header )

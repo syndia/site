@@ -16,14 +16,16 @@ import PagePreview from '../PagePreview'
 /**
  * Module dependencies
  */
-import {
-  pagesListPropTypes as withPropTypes,
-} from './prop-types'
+import withPropTypes from './prop-types'
 
 /**
  * Style dependencies
  */
 import styles from "./index.css"
+
+const enhance = compose(
+  withPropTypes,
+)
 
 const PagesList = ( { pages } ) => {
   return (
@@ -44,9 +46,5 @@ const PagesList = ( { pages } ) => {
     </div>
   )
 }
-
-const enhance = compose(
-  withPropTypes,
-)
 
 export default enhance( PagesList )
