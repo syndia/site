@@ -33,8 +33,8 @@ const SocialLink = ( { url, target = '_blank', icon, name } ) => (
   </a>
 )
 
-const SocialLinks = ( { metadata: { pkg } } ) => (
-  <div>
+const SocialLinks = ( { metadata: { pkg }, className } ) => (
+  <div className={ className }>
     { pkg.twitter &&
       <SocialLink
         url={ `https://twitter.com/${ pkg.twitter }` }

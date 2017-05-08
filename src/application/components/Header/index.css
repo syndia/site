@@ -27,7 +27,7 @@
   flex-direction: row;
 }
 
-.link {
+.navPart2 a {
   display: flex;
   align-items: center;
   padding: 0 var(--nav-item-padding);
@@ -45,7 +45,7 @@
   }
 }
 
-.link svg {
+a svg {
   fill: currentColor;
   opacity: 0.5;
   margin-right: 0.5rem;

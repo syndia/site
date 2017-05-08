@@ -8,7 +8,6 @@ import {
   compose,
 } from 'recompose'
 import { Link } from 'phenomic'
-import Svg from 'react-svg-inline'
 
 /**
  * Internal dependencies
@@ -16,9 +15,7 @@ import Svg from 'react-svg-inline'
 import {
   getMetaDataContext,
 } from '../../../helpers/phenomic'
-
-import twitterSvg from '../icons/iconmonstr-twitter-1.svg'
-import gitHubSvg from '../icons/iconmonstr-github-1.svg'
+import SociaLinks from '../../../components/Social'
 
 /**
  * Style dependencies
@@ -29,7 +26,7 @@ const enhance = compose(
   getMetaDataContext,
 )
 
-const Header = ( { metadata: { pkg } } ) => (
+const Header = () => (
   <header className={ styles.header }>
     <nav className={ styles.nav }>
       <div className={ styles.navPart1 }>
@@ -46,28 +43,7 @@ const Header = ( { metadata: { pkg } } ) => (
           { "Blog" }
         </Link>
       </div>
-      <div className={ styles.navPart2 }>
-        {
-          pkg.twitter &&
-          <a
-            href={ `https://twitter.com/${ pkg.twitter }` }
-            className={ styles.link }
-          >
-            <Svg svg={ twitterSvg } cleanup />
-            { "Twitter" }
-          </a>
-        }
-        {
-          pkg.repository &&
-          <a
-            href={ pkg.repository }
-            className={ styles.link }
-          >
-            <Svg svg={ gitHubSvg } cleanup />
-            { "GitHub" }
-          </a>
-        }
-      </div>
+      <SociaLinks className={ styles.navPart2 } />
     </nav>
   </header>
 )
