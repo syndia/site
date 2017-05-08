@@ -6,7 +6,6 @@ import React from 'react'
 /**
  * Style dependencies
  */
-import styles from './index.css'
 
 const Footer = () => (
   <footer style={ { gridArea: 'footer', justifySelf: 'auto', alignSelf: 'auto' } }>
