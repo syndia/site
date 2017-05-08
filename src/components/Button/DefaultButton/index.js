@@ -19,7 +19,7 @@ import cx from 'classnames'
  */
 import {
   getButtonGroupContext,
-} from './ButtonGroup/context'
+} from '../ButtonGroup/context'
 import withPropTypes from './prop-types'
 
 /**
@@ -36,7 +36,7 @@ const enhance = compose(
   } ),
   mapProps( props => omit( props, 'buttonGroup' ) ),
   mapProps( ( {
-    big, light, secondary,
+    big, light, primary, secondary,
     className, children, ...rest,
   } ) => {
     const classes = cx( {
@@ -44,14 +44,15 @@ const enhance = compose(
       [ styles.button ]: true,
       [ styles.big ]: big,
       [ styles.light ]: light,
+      [ styles.primary ]: primary,
       [ styles.secondary ]: secondary,
     } )
 
     return {
       ...rest,
-      className: typeof children !== 'string' ? className : '',
+      className: classes,
       children: typeof children === 'string'
-        ? <span className={ classes } role="button">{ children }</span>
+        ? <span role="button">{ children }</span>
         : children,
     }
   } ),

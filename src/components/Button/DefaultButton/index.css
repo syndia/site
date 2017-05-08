@@ -10,7 +10,7 @@
 
   color: var(--colorPrimary);
   border: 1px solid var(--colorPrimary);
-  background: color(var(--colorNeutralLight) a(0.2));
+  background: color(var(--colorPrimaryDark) a(0.8));
 
   &:hover {
     text-decoration: none;
@@ -20,6 +20,7 @@
 }
 
 .secondary {
+  background: transparent;
   color: var(--colorSecondary);
   border: 1px solid var(--colorSecondary);
 
@@ -41,13 +42,18 @@
 }
 
 .big {
+  font-weight: 300;
   font-size: 1.5rem;
   padding: 0 2rem;
-  line-height: 3rem;
+  line-height: 2;
 }
 
-.goBackButton {
-  border: none;
-  background: transparent;
-  cursor: pointer;
+.primary.light {
+  background: color(white);
+  color: color(var(--colorPrimaryDark));
+  font-weight: 400;
+
+  &:hover {
+    background: color(var(--colorNeutralLight) a(0.7));
+  }
 }

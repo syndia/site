@@ -24,6 +24,7 @@ import {
 /**
  * Module dependencies
  */
+import tracks from './tracks'
 import withPropTypes from './prop-types'
 
 /**
@@ -46,6 +47,7 @@ const PageError = ( { error, errorText } ) => (
       title: 'Error',
       fullscreen: true,
     } }
+    tracks={ tracks }
   >
     <Main>
       <div className={ styles.container }>

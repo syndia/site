@@ -17,8 +17,8 @@ import {
   getMetaDataContext,
 } from '../../../helpers/phenomic'
 
-import twitterSvg from '../../icons/iconmonstr-twitter-1.svg'
-import gitHubSvg from '../../icons/iconmonstr-github-1.svg'
+import twitterSvg from '../icons/iconmonstr-twitter-1.svg'
+import gitHubSvg from '../icons/iconmonstr-github-1.svg'
 
 /**
  * Style dependencies
@@ -38,6 +38,12 @@ const Header = ( { metadata: { pkg } } ) => (
           to={ "/" }
         >
           { "Home" }
+        </Link>
+        <Link
+          className={ styles.link }
+          to={ "/blog" }
+        >
+          { "Blog" }
         </Link>
       </div>
       <div className={ styles.navPart2 }>

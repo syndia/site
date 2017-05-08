@@ -12,6 +12,8 @@ import {
  * Module dependencies
  */
 import DefaultHeadMeta from '../DefaultHeadMeta'
+import Header from '../Header'
+import Footer from '../Footer'
 import withPropTypes from './prop-types'
 
 /**
@@ -25,11 +27,13 @@ const enhance = compose(
   withPropTypes,
 )
 
-const AppContainer = props => (
+const Container = props => (
   <div className={ styles.container }>
     <DefaultHeadMeta />
+    <Header />
     { props.children }
+    <Footer />
   </div>
 )
 
-export default enhance( AppContainer )
+export default enhance( Container )

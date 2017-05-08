@@ -27,7 +27,7 @@ const enhance = compose(
   withPropTypes,
 )
 
-const PagesList = ( { pages } ) => {
+const PagesList = ( { pages, compact } ) => {
   return (
     <div>
       {
@@ -36,7 +36,7 @@ const PagesList = ( { pages } ) => {
         <ul className={ styles.list }>
           {
           pages.map( page => (
-            <li key={ page.title }><PagePreview { ...page } /></li>
+            <li key={ page.title }><PagePreview compact={ compact } { ...page } /></li>
           ))
         }
         </ul>

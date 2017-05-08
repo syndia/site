@@ -1,0 +1,25 @@
+.select {
+  margin-bottom: 1rem;
+
+  &:only-of-type,
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.error {
+  border-color: color(var(--colorError));
+
+  &:hover {
+    border-color: color(var(--colorError) l(20));
+    box-shadow: 0 0 0 2px color(var(--colorError) l(25));
+  }
+
+  &:disabled {
+    color: color(grey l(10));
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px color(var(--colorError) l(35));
+  }
+}

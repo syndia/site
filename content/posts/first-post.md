@@ -1,7 +1,12 @@
 ---
-title: First Post, no hero.
 date: 2016-01-22
+authors:
+  - phenomic
+title: First Post, no hero.
 layout: Post
+tags:
+  - React
+  - Tutorial
 ---
 
 This is the first post!

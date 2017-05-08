@@ -1,4 +1,5 @@
 .hero {
+  display: content;
   /* fallback, mainly visible when hero image is loading */
   background-color: var(--colorSecondary);
   /* fallback when there is no hero image */
@@ -23,8 +24,15 @@
   );
 }
 
+.teaser {
+  color: color(white a(0.9));
+  font-weight: 200;
+}
+
 .heading {
   color: var(--colorNeutralLight);
+  line-height: 1.2;
+  font-weight: 500;
   text-shadow:
     0 0 10px var(--colorPrimaryDark),
     0 0 6px var(--colorNeutralDark),
@@ -34,5 +42,5 @@
 }
 
 .cta {
-  margin-top: 2rem;
+  margin: 2rem 1rem 0;
 }

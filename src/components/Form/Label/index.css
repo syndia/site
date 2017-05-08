@@ -1,0 +1,11 @@
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+
+  & input[type="checkbox"] + span,
+  & input[type="radio"] + span {
+    font-weight: normal;
+  }
+}

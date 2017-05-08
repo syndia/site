@@ -14,15 +14,15 @@ import cx from 'classnames'
  */
 import {
   withBackLink,
-} from '../../helpers'
+} from '../../../helpers'
 import {
   ChevronIcon,
-} from '../../components/Svg/Icon'
+} from '../../../components/Svg/Icon'
 
 /**
  * Module dependencies
  */
-import Button from './Button'
+import Button from '../DefaultButton'
 
 /**
  * Style dependencies
@@ -43,6 +43,6 @@ export default compose(
     }
   } ),
   withProps( {
-    children: <ChevronIcon left size={ 24 } strokeWidth={ 1.5 } />
+    children: <ChevronIcon left size={ 24 } strokeWidth={ 1.5 } />,
   } ),
 )( Button )

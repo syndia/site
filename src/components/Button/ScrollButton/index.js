@@ -14,12 +14,12 @@ import {
  */
 import {
   withScrollAnimation,
-} from '../../helpers'
+} from '../../../helpers'
 
 /**
  * Module dependencies
  */
-import Button from './Button'
+import Button from '../DefaultButton'
 
 export default compose(
   withScrollAnimation,

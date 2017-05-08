@@ -14,5 +14,6 @@ export default setPropTypes( {
   head: PropTypes.object.isRequired,
   body: PropTypes.string,
   header: PropTypes.element,
+  sidebar: PropTypes.element,
   footer: PropTypes.element,
 } )

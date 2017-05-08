@@ -33,11 +33,8 @@ const enhance = compose(
   withPropTypes,
 )
 
-const PagePreview = ( { __url, title, date, description } ) => (
-  <div className={ styles.wrapper }>
-    <Link to={ __url } className={ styles.title }>
-      { title }
-    </Link>
+const Details = ( { __url, date, description }) => (
+  <div>
     <div className={ styles.meta }>
       {
         date && <DateComponent value={ new Date( date ) } />
@@ -55,6 +52,24 @@ const PagePreview = ( { __url, title, date, description } ) => (
     >
       { "Read More →" }
     </Button>
+  </div>
+)
+
+const CompactDetails = () => (
+  <div className={ styles.compact }>
+    <div className={ styles.image }></div>
+  </div>
+)
+
+const PagePreview = ( { __url, title, date, description, compact = false } ) => (
+  <div className={ styles.wrapper }>
+    <Link to={ __url } className={ styles.title }>
+      { title }
+    </Link>
+    { ! compact
+        ? <Details __url={ __url } date={ date } description={ description } />
+        : <CompactDetails />
+    }
   </div>
 )
 

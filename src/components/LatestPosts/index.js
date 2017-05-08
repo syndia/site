@@ -37,7 +37,7 @@ const enhance = compose(
   withPropTypes,
 )
 
-const LatestPosts = ( { collection, ...props } ) => {
+const LatestPosts = ( { collection, compact, className, ...props } ) => {
   const latestPosts = enhanceCollection( collection, {
     filter: { layout: "Post" },
     sort: "date",
@@ -50,7 +50,7 @@ const LatestPosts = ( { collection, ...props } ) => {
       <h2 className={ styles.latestPosts }>
         { "Latest Posts" }
       </h2>
-      <PagesList pages={ latestPosts } />
+      <PagesList className={ className } pages={ latestPosts } compact={ compact } />
     </div>
   )
 }

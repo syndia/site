@@ -31,3 +31,12 @@
   /* border-bottom: 0 !important; */
   text-decoration: none !important;
 }
+
+.compact{
+  & .image {
+    width: 4rem;
+    height: 4rem;
+    background: color(grey);
+    border-radius: 100px;
+  }
+}

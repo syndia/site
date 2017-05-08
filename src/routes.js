@@ -17,6 +17,7 @@ import {
   Page,
   PageError,
   Homepage,
+  Blog,
   Post,
 } from './layouts'
 
@@ -28,6 +29,7 @@ const PageContainer = props => (
       Page,
       PageError,
       Homepage,
+      Blog,
       Post,
     } }
   />
@@ -35,6 +37,9 @@ const PageContainer = props => (
 
 export default (
   <Route component={ ApplicationContainer }>
+    <Route path="blog/author/:author" component={ Blog } />
+    <Route path="blog/category/:category" component={ Blog } />
+    <Route path="blog/tag/:tag" component={ Blog } />
     <Route path="*" component={ PageContainer } />
   </Route>
 )

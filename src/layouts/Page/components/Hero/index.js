@@ -44,13 +44,26 @@ const enhance = compose(
   )
 )
 
+const createButtons = buttons => buttons.map(
+  ( button, index ) =>
+    <Button
+      key={ index }
+      component={ Link }
+      to={ button.link }
+      className={ styles.cta }
+      { ...button.props }
+    >
+      { button.label.toUpperCase() }
+    </Button>
+)
+
 const Hero = ( { children, head, fullscreen } ) => (
   <div
     className={ styles.hero }
     style={ head.hero && {
       width: fullscreen && '100%',
       height: fullscreen && '100vh',
-      background: `#111 url(${ head.hero }) 50% 50% / cover`,
+      background: typeof head.hero !== 'boolean' && `#111 url(${ head.hero }) 50% 50% / cover`,
     } }
   >
     <div
@@ -62,8 +75,9 @@ const Hero = ( { children, head, fullscreen } ) => (
     >
       <div className={ pageStyles.wrapper }>
         <h1 className={ styles.heading }>{ head.title }</h1>
+        { head.cta && head.cta.teaser && <p className={ styles.teaser }>{ head.cta.teaser }</p> }
         {
-          head.cta &&
+          head.cta && ! head.cta.buttons &&
           <Button
             component={ Link }
             to={ head.cta.link }
@@ -73,6 +87,9 @@ const Hero = ( { children, head, fullscreen } ) => (
           >
             { head.cta.label }
           </Button>
+       }
+       {
+         head.cta && head.cta.buttons && createButtons( head.cta.buttons )
        }
        { children }
        { fullscreen && <ScrollDownButton /> }

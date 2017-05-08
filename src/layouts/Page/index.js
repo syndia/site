@@ -18,6 +18,9 @@ import {
  */
 import { getMetaDataContext } from '../../helpers/phenomic'
 import Loading from '../../components/Loading'
+import {
+  Grid,
+} from '../../components/Grid'
 
 /**
  * Module dependencies
@@ -40,7 +43,11 @@ const Page = (
     metadata: { pkg },
     body,
     header,
+    sidebar,
     footer,
+    sections,
+    gap,
+    tracks,
     children,
   },
 ) => {
@@ -59,18 +66,25 @@ const Page = (
       {
         <Hero fullscreen={ head.fullscreen } head={ head } />
       }
-      <div id="content" className={ styles.wrapper + " " + styles.pageContent }>
+      <Grid
+        gap={ gap }
+        tracks={ tracks }
+        id="content"
+        className={ styles.wrapper + " " + styles.pageContent }
+      >
         { header }
-        <div className={ styles.body }>
+        <div className={ styles.body } style={ { gridArea: 'main', justifySelf: 'auto', alignSelf: 'auto' } }>
           {
             isLoading
             ? <Loading />
-            : <BodyContainer>{ body }</BodyContainer>
+            : body && <BodyContainer>{ body }</BodyContainer>
           }
+          { children }
         </div>
-        { children }
+        { sections && sections.map( ( Component, index ) => <Component key={ `section-${ index }` } /> ) }
+        { sidebar }
         { footer }
-      </div>
+      </Grid>
     </div>
   )
 }

@@ -107,6 +107,7 @@
     "eslint-plugin-react": "^6.4.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
+    "grid-template-parser": "^0.3.2",
     "history": "^2.0.0",
     "npm-run-all": "^1.7.0",
     "phenomic": "^0.21.1",
