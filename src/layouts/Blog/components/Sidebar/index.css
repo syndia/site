@@ -1,0 +1,16 @@
+.sidebar {
+  margin-right: 2rem;
+
+  & h2 {
+    text-align: left;
+    font-weight: 200;
+  }
+
+  & a {
+    font-size: 1rem;
+  }
+}
+
+.list {
+  flex-direction: row;
+}

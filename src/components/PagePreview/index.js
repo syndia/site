@@ -22,20 +22,19 @@ import {
 /**
  * Module dependencies
  */
-import {
-  pagePreviewPropTypes as withPropTypes,
-} from './prop-types'
+import withPropTypes from './prop-types'
 
 /**
  * Style dependencies
  */
 import styles from './index.css'
 
-const PagePreview = ( { __url, title, date, description } ) => (
-  <div className={ styles.wrapper }>
-    <Link to={ __url } className={ styles.title }>
-      { title }
-    </Link>
+const enhance = compose(
+  withPropTypes,
+)
+
+const Details = ( { __url, date, description }) => (
+  <div>
     <div className={ styles.meta }>
       {
         date && <DateComponent value={ new Date( date ) } />
@@ -56,8 +55,22 @@ const PagePreview = ( { __url, title, date, description } ) => (
   </div>
 )
 
-const enhance = compose(
-  withPropTypes,
+const CompactDetails = () => (
+  <div className={ styles.compact }>
+    <div className={ styles.image }></div>
+  </div>
+)
+
+const PagePreview = ( { __url, title, date, description, compact = false } ) => (
+  <div className={ styles.wrapper }>
+    <Link to={ __url } className={ styles.title }>
+      { title }
+    </Link>
+    { ! compact
+        ? <Details __url={ __url } date={ date } description={ description } />
+        : <CompactDetails />
+    }
+  </div>
 )
 
 export default enhance( PagePreview )

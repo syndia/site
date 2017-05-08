@@ -6,6 +6,6 @@ import {
   setPropTypes,
 } from 'recompose'
 
-export const pagesListPropTypes = setPropTypes( {
+export default setPropTypes( {
   pages: PropTypes.array.isRequired,
 } )

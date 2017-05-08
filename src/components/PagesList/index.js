@@ -16,16 +16,18 @@ import PagePreview from '../PagePreview'
 /**
  * Module dependencies
  */
-import {
-  pagesListPropTypes as withPropTypes,
-} from './prop-types'
+import withPropTypes from './prop-types'
 
 /**
  * Style dependencies
  */
 import styles from "./index.css"
 
-const PagesList = ( { pages } ) => {
+const enhance = compose(
+  withPropTypes,
+)
+
+const PagesList = ( { pages, compact } ) => {
   return (
     <div>
       {
@@ -34,7 +36,7 @@ const PagesList = ( { pages } ) => {
         <ul className={ styles.list }>
           {
           pages.map( page => (
-            <li key={ page.title }><PagePreview { ...page } /></li>
+            <li key={ page.title }><PagePreview compact={ compact } { ...page } /></li>
           ))
         }
         </ul>
@@ -44,9 +46,5 @@ const PagesList = ( { pages } ) => {
     </div>
   )
 }
-
-const enhance = compose(
-  withPropTypes,
-)
 
 export default enhance( PagesList )

@@ -1,21 +1,51 @@
+:root {
+  --background-Color: rgb(8,30,90);
+}
+
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 50vh;
-  padding: 1rem 0;
+  min-height: 100vh;
+  font-weight: 200;
+  text-align: left;
+  background: color(rgb(8,29,90));
+  background: radial-gradient(ellipse at bottom, color(var(--background-Color)) 0%, color(var(--background-Color) l(10)) 100%);
+  color: color(var(--background-Color) l(90%) a(35%));
 }
 
 .oops {
-  font-size: 4rem;
-  line-height: 4rem;
-  color: #ddd;
+  max-width: 60vw;
+  font-size: 1.5rem;
+  line-height: 3.5rem;
+  color: color(var(--background-Color) l(90%) a(35%));
+
+  & span {
+    font-size: 3rem;
+    font-weight: 300;
+    text-align: right;
+    text-transform: uppercase;
+    color: color(white);
+  }
+
+  & em {
+    font-style: normal;
+  }
 }
 
 .title {
-  margin: 4rem 0;
+  margin: 2rem 0;
   font-size: 2rem;
   line-height: 3rem;
   text-align: center;
+}
+
+.goBackButton {
+  position: absolute;
+  top: 50vh;
+  left: 3em;
+  font-weight: 200;
+  text-transform: uppercase;
+  color: color(white a(80%));
 }

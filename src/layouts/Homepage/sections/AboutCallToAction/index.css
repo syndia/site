@@ -1,0 +1,23 @@
+.cta {
+  display: flex;
+  align-content: baseline;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  line-height: 3.5;
+  font-weight: 500;
+  color: color(white);
+  background: color(var(--colorNeutral) l(60));
+
+  &:hover {
+    background: color(var(--colorNeutral) l(50));
+  }
+
+  & svg {
+    margin-bottom: 0.2rem;
+    padding: 3px;
+    border-radius: 100%;
+    color: color(var(--colorNeutral) l(60));
+    background: color(white);
+  }
+}

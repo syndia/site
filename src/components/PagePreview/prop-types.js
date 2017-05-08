@@ -6,7 +6,7 @@ import {
   setPropTypes,
 } from 'recompose'
 
-export const pagePreviewPropTypes = setPropTypes( {
+export default setPropTypes( {
   __url: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   date: PropTypes.string,

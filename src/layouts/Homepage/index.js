@@ -6,13 +6,20 @@ import React from 'react'
 /**
  * Internal dependencies
  */
-import LatestPosts from '../../components/LatestPosts'
 import Page from '../Page'
 
+/**
+ * Module dependencies
+ */
+import sections from './sections'
+import tracks from './tracks'
+
 const Homepage = props => (
-  <Page { ...props }>
-    <LatestPosts />
-  </Page>
+    <Page
+      gap="0"
+      tracks={ tracks } { ...props }
+      sections={ sections }
+    />
 )
 
 export default Homepage

@@ -12,26 +12,31 @@ import {
 /**
  * Internal dependencies
  */
-import AppContainer from './application/AppContainer'
-import Page from './layouts/Page'
-import PageError from './layouts/PageError'
-import Homepage from './layouts/Homepage'
-import Post from './layouts/Post'
+import ApplicationContainer from './application'
+import {
+  Page,
+  PageError,
+  Homepage,
+  Blog,
+  Post,
+} from './layouts'
 
 const PageContainer = props => (
   <PhenomicPageContainer
     { ...props }
+    defaultLayout={ 'Page' }
     layouts={ {
       Page,
       PageError,
       Homepage,
+      Blog,
       Post,
     } }
   />
 )
 
 export default (
-  <Route component={ AppContainer }>
+  <Route component={ ApplicationContainer }>
     <Route path="*" component={ PageContainer } />
   </Route>
 )

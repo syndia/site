@@ -20,14 +20,16 @@ import Page from '../Page'
 /**
  * Module dependencies
  */
-import {
-  postPropTypes as withPropTypes,
-} from './prop-types'
+import  withPropTypes from './prop-types'
 
 /**
  * Style dependencies
  */
 import styles from './index.css'
+
+const enhance = compose(
+  withPropTypes,
+)
 
 const Post = props => (
   <Page
@@ -46,10 +48,6 @@ const Post = props => (
     <hr />
     <LatestPosts />
   </Page>
-)
-
-const enhance = compose(
-  withPropTypes,
 )
 
 export default enhance( Post )

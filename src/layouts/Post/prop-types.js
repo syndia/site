@@ -6,6 +6,6 @@ import {
   setPropTypes,
 } from 'recompose'
 
-export const postPropTypes = setPropTypes( {
+export default setPropTypes( {
   head: PropTypes.object.isRequired,
 } )

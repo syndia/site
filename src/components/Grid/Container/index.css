@@ -1,0 +1,7 @@
+.grid {
+  display: grid;
+  grid-template-rows: 100px 100px auto;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+}

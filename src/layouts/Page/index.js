@@ -3,10 +3,9 @@
 /**
  * External dependencies
  */
-import React, { PropTypes } from 'react'
+import React from 'react'
 import {
   compose,
-  getContext,
   setDisplayName,
 } from 'recompose'
 import warning from 'warning'
@@ -17,25 +16,23 @@ import {
 /**
  * Internal dependencies
  */
+import { getMetaDataContext } from '../../helpers/phenomic'
 import Loading from '../../components/Loading'
+import {
+  Grid,
+} from '../../components/Grid'
 
 /**
  * Module dependencies
  */
 import Meta from './components/Meta'
 import Hero from './components/Hero'
-import {
-  pagePropTypes as withPropTypes,
-} from './prop-types'
+import withPropTypes from './prop-types'
 
 /**
  * Style dependencies
  */
 import styles from './index.css'
-
-const getMetaData = getContext ( {
-  metadata: PropTypes.object.isRequired,
-} )
 
 const Page = (
   {
@@ -46,7 +43,11 @@ const Page = (
     metadata: { pkg },
     body,
     header,
+    sidebar,
     footer,
+    sections,
+    gap,
+    tracks,
     children,
   },
 ) => {
@@ -56,7 +57,7 @@ const Page = (
   )
 
   return (
-    <div className={ styles.page }>
+    <div className={ styles.default }>
       <Meta
         __url={ __url }
        head={ head }
@@ -65,25 +66,31 @@ const Page = (
       {
         <Hero fullscreen={ head.fullscreen } head={ head } />
       }
-      <div id="content" className={ styles.wrapper + " " + styles.pageContent }>
+      <Grid
+        gap={ gap }
+        tracks={ tracks }
+        id="content"
+        className={ styles.wrapper + " " + styles.pageContent }
+      >
         { header }
-        <div className={ styles.body }>
+        <div className={ styles.body } style={ { gridArea: 'main', justifySelf: 'auto', alignSelf: 'auto' } }>
           {
             isLoading
             ? <Loading />
-            : <BodyContainer>{ body }</BodyContainer>
+            : body && <BodyContainer>{ body }</BodyContainer>
           }
+          { children }
         </div>
-        { children }
+        { sections && sections.map( ( Component, index ) => <Component key={ `section-${ index }` } /> ) }
+        { sidebar }
         { footer }
-      </div>
+      </Grid>
     </div>
   )
 }
 
 export default compose(
-  setDisplayName( 'MetaDataContext' ),
-  getMetaData,
+  getMetaDataContext,
   setDisplayName( 'Page' ),
   withPropTypes,
 )( Page )

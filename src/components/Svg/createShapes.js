@@ -67,7 +67,7 @@ const createShapes = ( strokeWidth = 2 ) => {
       left: [ [
         [ 11, a0 ],
         [ 11 - b0, 8 ],
-        [ 11 - c0 ],
+        [ 11, c0 ],
       ] ],
       right: [ [
         [ 5, a0 ],
