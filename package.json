@@ -3,6 +3,7 @@
   "name": "syndia-site",
   "homepage": "https://www.syndia.nl",
   "twitter": "syndianl",
+  "linkedin": "syndianl",
   "repository": "https://github.com/syndia/site.git",
   "scripts": {
     "lint:js": "eslint --ignore-path .gitignore --fix .",

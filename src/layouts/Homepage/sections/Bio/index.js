@@ -23,7 +23,7 @@ const Bio = () => (
     <p>
       { "WordPress & Front-end Developer, John combines his education with 1 year commercial experience " }
       { "in Wordpress & front-end development to produce high-quality websites and exceptional user experience." }
-      <hr />
+      <br /><br />
       { "WordPress & Front-end Developer." }
       <br />
       { "Available June 2017. " }

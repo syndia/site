@@ -1,4 +1,4 @@
-.social {
+.navigation {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,20 +10,14 @@
   color: color(white l(70));
   background: color(var(--colorSecondaryDark));
 
-  & ul {
-    list-style: none;
+  & dt {
+    font-size: 1rem;
+    font-weight: 500;
+    color: color(white);
   }
 
-  & li {
-    display: flex;
-    align-items: center;
-    justify-content: left;
-  }
-
-  & svg {
-    display: inline-block;
-    fill: color(white);
-    width: 24px;
-    margin: 4px 1rem 0 0;
+  & dd {
+    margin: 0 0 1rem 0;
+    font-size: 0.75rem;
   }
 }

@@ -9,6 +9,10 @@
   color: color(white);
   background: color(var(--colorNeutral) l(60));
 
+  &:hover {
+    background: color(var(--colorNeutral) l(50));
+  }
+
   & svg {
     margin-bottom: 0.2rem;
     padding: 3px;

@@ -10,8 +10,20 @@ export default {
       },
       row: {
         start: 2,
-        end: 5,
+        end: 4,
         span: 3,
+      },
+    },
+    about__hash: {
+      column: {
+        start: 1,
+        end: 7,
+        span: 1,
+      },
+      row: {
+        start: 1,
+        end: 2,
+        span: 1,
       },
     },
     about__cta: {
@@ -29,8 +41,8 @@ export default {
     bio: {
       column: {
         start: 1,
-        end: 4,
-        span: 3,
+        end: 3,
+        span: 2,
       },
       row: {
         start: 6,
@@ -40,15 +52,27 @@ export default {
     },
     social__links: {
       column: {
-        start: 4,
-        end: 7,
-        span: 3,
+        start: 3,
+        end: 5,
+        span: 2,
       },
       row: {
         start: 6,
         end: 7,
         span: 1,
       },
-    }
+    },
+    navigation: {
+      column: {
+        start: 5,
+        end: 7,
+        span: 2,
+      },
+      row: {
+        start: 6,
+        end: 7,
+        span: 1,
+      },
+    },
   },
 }

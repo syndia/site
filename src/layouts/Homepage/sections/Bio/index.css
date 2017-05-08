@@ -5,13 +5,22 @@
   padding: 0.5rem 1.5rem;
   height: 100%;
   line-height: 1.4;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 200;
-  color: color(var(--colorSecondaryDark) l(80));
+  color: color(white l(70));
   background: color(var(--colorSecondaryDark));
 
   & a,
   & a:hover {
     color: color(white);
+
+    & strong {
+      font-weight: 500;
+    }
+  }
+
+  & hr {
+    height: 2px;
+    background: color(white);
   }
 }
