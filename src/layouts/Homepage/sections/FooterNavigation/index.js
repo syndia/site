@@ -6,7 +6,6 @@
 import React from 'react'
 import {
   compose,
-  setDisplayName,
   withProps,
 } from 'recompose'
 
