@@ -3,12 +3,12 @@
  */
 import AboutCallToAction from './AboutCallToAction'
 import Bio from './Bio'
-import Navigation from './Navigation'
+import FooterNavigation from './FooterNavigation'
 import SocialLinks from './SocialLinks'
 
 export default [
   AboutCallToAction,
   Bio,
-  Navigation,
+  FooterNavigation,
   SocialLinks,
 ]
