@@ -122,6 +122,7 @@
     "react-dom": "^15.0.0",
     "react-helmet": "^3.0.0",
     "react-hot-loader": "^3.0.0-beta",
+    "react-modal": "^1.7.7",
     "react-redux": "^4.0.0",
     "react-router": "^2.3.0",
     "react-svg-inline": "^1.1.0",

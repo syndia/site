@@ -14,8 +14,15 @@ import Page from '../Page'
 import sections from './sections'
 import tracks from './tracks'
 
+/**
+ * Style dependencies
+ */
+import styles from './index.css'
+
 const Homepage = props => (
     <Page
+      className={ styles.homepage }
+      autoRows="minmax(100px, auto)"
       gap="0"
       tracks={ tracks } { ...props }
       sections={ sections }

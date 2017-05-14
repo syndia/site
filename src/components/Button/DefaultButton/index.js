@@ -36,16 +36,23 @@ const enhance = compose(
   } ),
   mapProps( props => omit( props, 'buttonGroup' ) ),
   mapProps( ( {
-    big, light, primary, secondary,
+    primary, secondary, big, transparent, light, fill, svg,
+    black, grey, white,
     className, children, ...rest,
   } ) => {
     const classes = cx( {
       [ className ]: className,
       [ styles.button ]: true,
-      [ styles.big ]: big,
-      [ styles.light ]: light,
       [ styles.primary ]: primary,
       [ styles.secondary ]: secondary,
+      [ styles.svg ]: svg,
+      [ styles.black ]: black,
+      [ styles.grey ]: grey,
+      [ styles.white ]: white,
+      [ styles.transparent ]: transparent,
+      [ styles.big ]: big,
+      [ styles.light ]: light,
+      [ styles.fill ]: fill,
     } )
 
     return {

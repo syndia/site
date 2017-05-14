@@ -1,0 +1,33 @@
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background: color(white a(50%));
+
+  & h2 {}
+
+  & h6 {
+    margin: 0 0 0.5rem;
+    font-size: 0.75em;
+    letter-spacing: 1px;
+    color: color(grey l( 60));
+  }
+
+  & p {
+    font-size: 0.875rem;
+    font-weight: 200;
+    color: color(grey l(60))
+  }
+
+  & em {
+    font-family:'Merriweather', Georgia, 'Times New Roman', Times, serif;
+  }
+
+}
+
+.gallery {
+  padding: 0 10%;
+}

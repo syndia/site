@@ -1,0 +1,17 @@
+.gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 100vw;
+  margin: 1rem 0 2.5rem;
+}
+
+.item {
+  float: left;
+  display: block;
+  box-sizing: border-box;
+  line-height: 0;
+  overflow: hidden;
+  width: 25%;
+}
