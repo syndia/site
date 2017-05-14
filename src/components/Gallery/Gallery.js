@@ -40,7 +40,7 @@ const createItemsList = ( { items, gap, height, openLightbox } ) => map( items, 
 
 const Gallery = ( {
   currentItem, items,
-  closeLightbox, isLightboxOpen,
+  closeLightbox, lightboxState,
   gotoNextItem, gotoPreviousItem, gotoItem,
   handleClickItem,
   showThumbnails,
@@ -50,13 +50,13 @@ const Gallery = ( {
     ref={ index => this.gallery = index }
     className={ className }
   >
-    <div>
+    <div className={ styles.collection }>
       { createItemsList( { items, ...rest } ) }
     </div>
     <Lightbox
       currentImage={ currentItem }
       images={ items }
-      isOpen={ isLightboxOpen }
+      isOpen={ lightboxState.isOpen }
       onClickImage={ handleClickItem }
       onClickNext={ gotoNextItem }
       onClickPrevious={ gotoPreviousItem }
@@ -69,8 +69,12 @@ const Gallery = ( {
 )
 
 export default compose(
-  withState( 'isLightboxOpen', 'setIsLightBoxOpen', false ),
+  // Lightbox state
+  withState( 'lightboxState', 'setLightboxState', { isOpen: false, isOpening: false, timeout: null } ),
+
+  // Collection state
   withState( 'currentItem', 'setCurrentItem', 0 ),
+
   defaultProps( {
     gap: { column: 0.5, row: 0.5, unit: 'rem' },
   } ),
@@ -88,24 +92,36 @@ export default compose(
       className: classes,
     }
   } ),
+
   withHandlers( {
-    openLightbox: ( { setCurrentItem, setIsLightBoxOpen } ) => ( index, event ) => {
+    // Lightbox handlers
+    openLightbox: ( { setCurrentItem, setLightboxState } ) => ( index, event ) => {
       event.preventDefault()
       setCurrentItem( index )
-      setIsLightBoxOpen( true )
+
+      const timeout = setTimeout( () => setLightboxState( { isOpen: true, isOpening: false } ), 400 )
+      setLightboxState( { isOpen: true, isOpening: true, timeout } )
     },
-    closeLightbox: ( { setCurrentItem, setIsLightBoxOpen } ) => () => {
+    closeLightbox: ( { setCurrentItem, lightboxState, setLightboxState } ) => () => {
       setCurrentItem( 0 )
-      setIsLightBoxOpen( false )
+
+      clearTimeout( lightboxState.timeout )
+      setLightboxState( { isOpen: false, isOpening: false, timeout: null } )
     },
+
+    // Collection handlers
     gotoPreviousItem: ( { currentItem, setCurrentItem } ) => () => setCurrentItem( currentItem - 1 ),
     gotoNextItem: ( { currentItem, setCurrentItem } ) => () => setCurrentItem( currentItem + 1 ),
     gotoItem: ( { setCurrentItem } ) => index => setCurrentItem( index ),
-    handleClickItem: ( { currentItem, items, next } ) => () => {
-      if ( currentItem === items.length -1 ) {
+  } ),
+
+  withHandlers( {
+    // Image handlers
+    handleClickItem: ( { currentItem, setCurrentItem, items, gotoNextItem } ) => () => {
+      if ( currentItem === items.length - 1 ) {
         return
       }
-      next()
-    }
+      gotoNextItem( { currentItem, setCurrentItem } )
+    },
   } ),
-)( Gallery )
+  )( Gallery )

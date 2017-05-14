@@ -47,7 +47,7 @@ const GalleryItem = ( { className, gap, height, index, item, openLightbox } ) =>
     >
       <Image
         key={ `image-${ index }-${ item.src }` }
-        source={ item.thumbnail }
+        src={ item.thumbnail }
         index={ index }
         height={ height }
         style={ { border: 0, display: 'block', height: 'auto', maxWidth: '100%', width: 'auto' } }

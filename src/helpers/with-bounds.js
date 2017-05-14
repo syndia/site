@@ -12,6 +12,12 @@ import {
 	omit,
 } from 'lodash'
 
+const canUseDOM = Boolean(
+	typeof window !== 'undefined'
+	&& window.document
+	&& window.document.createElement
+)
+
 const screenRect = () => ( {
 	top: 0,
 	height: document.documentElement.clientHeight,

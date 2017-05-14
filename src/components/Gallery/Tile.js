@@ -50,7 +50,7 @@ const Tile = ( { item, className, ...rest } ) => (
     <ViewPort>
       <Image
         key={ ( { index } ) => () => this.image = index }
-        source={ item.thumbnail }
+        src={ item.thumbnail }
         title={ item.caption }
       />
     </ViewPort>
