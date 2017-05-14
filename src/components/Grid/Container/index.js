@@ -16,9 +16,11 @@ import {
 /**
  * Internal dependencies
  */
+/*
 import {
   withBounds,
 } from '../../../helpers'
+*/
 
 /**
  * Module dependencies
@@ -31,14 +33,15 @@ import {
 import styles from './index.css'
 
 export default compose(
-  withBounds( 'root', 'setRootElement' ),
-  withBounds( 'screen' ),
+  //withBounds( 'root', 'setRootElement' ),
+  //withBounds( 'screen' ),
 
   setDisplayName( 'GridContainer' ),
   defaultProps( {
     component: 'div',
     height: 'auto',
   } ),
+  //mapProps( props => omit( props, [ 'screen', 'boundsElement' ] ) ),
   mapProps( ( {
     grid,
     templateRows, templateColumns, templateAreas,
@@ -47,7 +50,7 @@ export default compose(
     justifyItems, justifyContent,
     alignItems, alignContent,
     tracks,
-    root, setRootElement,
+    //root, setRootElement,
     className, ...rest,
   } ) => {
     const classes = cx( {
@@ -89,7 +92,7 @@ export default compose(
     return {
       ...rest,
       className: classes,
-      ref: setRootElement,
+      //ref: setRootElement,
       style,
     }
   } ),

@@ -19,12 +19,12 @@ const defaultProps = setDefaultProps( {
 export default InnerComponent => compose(
   setDisplayName( `withPlaceholdIt(${ getDisplayName( InnerComponent )}` ),
   defaultProps,
-  mapProps( ( { source, format, height, width, ...rest } ) => {
-    const imageHeight = height || width
+  mapProps( ( { src, format, size, height, width, ...rest } ) => {
+    const imageHeight = size || height || width
 
     return {
       ...rest,
-      src: source || `${ uri }/${ width }x${ imageHeight }.${ format }`,
+      src: src || `${ uri }/${ size || width }x${ imageHeight }.${ format }`,
       width: ! rest.sizes && width,
       height: ! rest.sizes && imageHeight,
     }

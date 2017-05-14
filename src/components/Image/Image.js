@@ -15,6 +15,9 @@ import {
   withHandlers,
   withState,
 } from 'recompose'
+import {
+  omit,
+} from 'lodash'
 import cx from 'classnames'
 
 /**
@@ -57,7 +60,7 @@ export default compose(
         setIsLoaded( true )
       }
     },
-    onError: ( { currentIndex }) => () => {
+    onError: ( { currentIndex } ) => () => {
       cache.set( sourceList.get( currentIndex ), false )
 
      if ( ! this.image ) {
@@ -130,4 +133,15 @@ export default compose(
       }
     },
   } ),
+  mapProps( props => omit( props, [
+    'currentIndex',
+    'setCurrentIndex',
+    'setImage',
+    'unsetImage',
+    'setIsLoaded',
+    'setHasError',
+    'isLoaded',
+    'hasError',
+    'isLoading',
+  ]))
 )( ImageElement )

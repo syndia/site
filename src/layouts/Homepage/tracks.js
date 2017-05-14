@@ -17,9 +17,9 @@ export default {
       },
       portfolio: {
         column: {
-          start: 2,
-          end: 6,
-          span: 4,
+          start: 1,
+          end: 7,
+          span: 6,
         },
         row: {
           start: 2,
