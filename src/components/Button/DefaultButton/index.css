@@ -1,4 +1,18 @@
 .button {
+  /* structure */
+  display: inline-block;
+  zoom: 1;
+  line-height: normal;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-drag: none;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.button {
   display: inline-flex;
   padding: 0 1rem;
   line-height: 2rem;
@@ -56,4 +70,49 @@
   &:hover {
     background: color(var(--colorNeutralLight) a(0.7));
   }
+}
+
+.secondary.fill {
+  padding: 0.3rem 2rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.black {
+  background: color(black);
+  color: color(black);
+  border-color: color(black);
+}
+
+.grey {
+  background: color(grey l(85));
+  color: color(grey l(85));
+  border-color: color(grey l(85));
+
+  &:hover {
+    background-color: color(var(--colorPrimary));
+    border-color: color(var(--colorPrimary));
+    color: color(white);
+  }
+}
+
+.white {
+  background: color(white);
+  color: color(white);
+  border-color: color(white);
+}
+
+.transparent {
+  background: transparent !important;
+}
+
+.fill {
+  color: inherit;
+}
+
+.svg {
+  padding: 0;
+  border: none !important;
+  fill: currentColor;
 }

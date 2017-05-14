@@ -1,0 +1,53 @@
+:root {
+    --spinner-Color-border: color(grey alpha(20%));
+    --spinner-Color-progress: color(var( --colorPrimary));
+}
+
+.spinner__image {
+    display: block;
+}
+
+.spinner__border {
+    fill: var( --spinner-Color-border );
+}
+
+.spinner__progress {
+  animation: 3s linear infinite;
+  fill: var(--spinner-Color-progress );
+}
+
+@keyframes :global ( rotate-spinner__right ) {
+    0% {
+        transform: rotate( 0deg );
+    }
+    25% {
+        transform: rotate( 180deg );
+    }
+    50% {
+        transform: rotate( 180deg );
+    }
+    75% {
+        transform: rotate( 360deg );
+    }
+    100% {
+        transform: rotate( 360deg );
+    }
+}
+
+@keyframes :global ( rotate-spinner__left ) {
+    0% {
+        transform: rotate( 0deg );
+    }
+    25% {
+        transform: rotate( 0deg );
+    }
+    50% {
+        transform: rotate( 180deg );
+    }
+    75% {
+        transform: rotate( 180deg );
+    }
+    100% {
+        transform: rotate( 360deg );
+    }
+}

@@ -4,26 +4,26 @@ export default {
   areas: {
     main: {
       column: {
-        start: 2,
-        end: 6,
-        span: 4,
-      },
-      row: {
-        start: 2,
-        end: 4,
-        span: 3,
-      },
-    },
-    about__hash: {
-      column: {
         start: 1,
         end: 7,
-        span: 1,
+        span: 6,
       },
       row: {
         start: 1,
         end: 2,
         span: 1,
+      },
+    },
+    portfolio: {
+      column: {
+        start: 1,
+        end: 7,
+        span: 6,
+      },
+      row: {
+        start: 2,
+        end: 5,
+        span: 3,
       },
     },
     about__cta: {

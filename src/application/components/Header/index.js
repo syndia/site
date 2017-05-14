@@ -7,15 +7,15 @@ import React from 'react'
 import {
   compose,
 } from 'recompose'
-import { Link } from 'phenomic'
 
 /**
  * Internal dependencies
  */
+import Navigation from '../../../components/Navigation'
 import {
   getMetaDataContext,
 } from '../../../helpers/phenomic'
-import SociaLinks from '../../../components/Social'
+import SocialLinks from '../../../components/Social'
 
 /**
  * Style dependencies
@@ -29,21 +29,8 @@ const enhance = compose(
 const Header = () => (
   <header className={ styles.header }>
     <nav className={ styles.nav }>
-      <div className={ styles.navPart1 }>
-        <Link
-          className={ styles.link }
-          to={ "/" }
-        >
-          { "Home" }
-        </Link>
-        <Link
-          className={ styles.link }
-          to={ "/blog" }
-        >
-          { "Blog" }
-        </Link>
-      </div>
-      <SociaLinks className={ styles.navPart2 } />
+      <Navigation className={ styles.navPart1 } />
+      <SocialLinks className={ styles.navPart2 } />
     </nav>
   </header>
 )

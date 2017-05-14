@@ -20,6 +20,7 @@ import { getMetaDataContext } from '../../helpers/phenomic'
 import Loading from '../../components/Loading'
 import {
   Grid,
+  Track,
 } from '../../components/Grid'
 
 /**
@@ -48,6 +49,7 @@ const Page = (
     sections,
     gap,
     tracks,
+    className,
     children,
   },
 ) => {
@@ -73,14 +75,14 @@ const Page = (
         className={ styles.wrapper + " " + styles.pageContent }
       >
         { header }
-        <div className={ styles.body } style={ { gridArea: 'main', justifySelf: 'auto', alignSelf: 'auto' } }>
+        <Track className={ styles.body } component="section" area="main" align="auto" justify="auto">
           {
             isLoading
             ? <Loading />
-            : body && <BodyContainer>{ body }</BodyContainer>
+            : body && <BodyContainer className={ className }>{ body }</BodyContainer>
           }
           { children }
-        </div>
+        </Track>
         { sections && sections.map( ( Component, index ) => <Component key={ `section-${ index }` } /> ) }
         { sidebar }
         { footer }

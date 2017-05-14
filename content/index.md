@@ -21,37 +21,18 @@ cta:
         light: true
 ---
 
-Hi there. Before having fun with Phenomic, be sure to read the documentation :
+## I am creative website designer and passionate photographer, enthusiastic about new experiences, keen on travelling and discovering new places. I specialize in UI/UX design, illustration and brand identity&nbsp;to provide the best services for my clients.
 
-* [How to setup a new project with Phenomic](https://phenomic.io/docs/setup/)
-* [Getting Started with Phenomic](https://phenomic.io/docs/getting-started/)
-* [Usage & APIs](https://phenomic.io/docs/usage/)
-* [FAQ](https://phenomic.io/docs/faq/)
+Phasellus congue sagittis congue. Aenean porttitor efficitur mi, eget sollicitudin orci ultrices vitae. Morbi ac justo sed ipsum pulvinar vestibulum ut et leo. Vivamus accumsan lectus sapien, venenatis accumsan velit pulvinar a. Pellentesque sit amet ipsum id velit rhoncus vehicula a sit amet enim.
 
-Also take a look at
-[existing websites that use Phenomic](https://phenomic.io/showcase/),
-some projects share their source code!
+- ### Exclusive services
+Aenean id mauris vulputate nibh<br />
+Nam et laoreet elit. Morbi quis lorem sed dui laoreet tincidunt vitae ac orci. Donec luctus erat et tellus.
 
-<!-- demo to show you that you can use "assets" folder -->
-<small>
-  Built with
-  <a href="https://facebook.github.io/react/">
-    <img alt="" src="assets/react.svg" width="16" height="16" />
-    React
-  </a>.
-</small>
+- ### Customer friendly
+Quisque rutrum est sapien rhoncus<br />
+Fusce bibendum laoreet nulla. Vivamus pretium metus dui tristique, sed molestie est placerat.
 
----
-
-You may want to take a look at the [404.html](/404.html) and tweak the render.
-
-If you need to make adjustments, you can directly alter page layouts in
-``src/layouts/``;
-small things like the header, footer, buttons and so on can be changed in
-``src/components/``;
-and for colors and common CSS variables, you can modify ``postcss.config.js``.
-
-_You feel like the base theme is not enough or you just saw something wrong?_
-[Please help us make Phenomic better!](https://phenomic.io/contributing/)
-
----
+- ### Reasonable pricing
+Proin consectetur dui orci eleifend<br />
+Vivamus porta augue a massa blandit feugiat. Cras sapien nisl, malesuada ac consequat ac, porttitor eu est.

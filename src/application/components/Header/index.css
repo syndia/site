@@ -27,6 +27,7 @@
   flex-direction: row;
 }
 
+.navPart1 a,
 .navPart2 a {
   display: flex;
   align-items: center;

@@ -1,0 +1,45 @@
+.backdrop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 3rem;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transition: background-color .2s ease-in;
+
+  &.dialog-enter,
+  &.dialog-leave.dialog-leave-active {
+    background-color: color(gray l(30%) a(0));
+  }
+
+  &,
+  &.dialog-enter.dialog-enter-active,
+  &.dialog-leave {
+    background-color: color(gray l(30%) a(0.8));
+  }
+}
+
+.card {
+  position: relative;
+  max-width: 90%;
+  margin: auto 0;
+  opacity: 1;
+  transition: opacity .2s ease-in;
+
+  .dialog-enter &,
+  .dialog-leave.dialog-leave-active & {
+    opacity: 0;
+  }
+
+  &,
+  .dialog-enter.dialog-enter-active &,
+  .dialog-leave & {
+    opacity: 1,
+  }
+}
+
+.fullScreen{
+  top: 0;
+}

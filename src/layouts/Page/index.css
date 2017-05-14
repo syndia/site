@@ -6,10 +6,13 @@
 .wrapper {
   align-self: center;
   width: 100%;
-  /* max-width: var(--maxWidth); */
 }
 
 .body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
   & a {
     color: var(--colorPrimary);
     transition: all 0.2s;
@@ -23,7 +26,6 @@
     }
   }
 
-  /* handy for content */
   & img {
     max-width: 100%;
   }
