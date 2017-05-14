@@ -1,6 +1,6 @@
 /**
  * Module Dependencies
  */
-import LightBox from './LightBox'
+import Lightbox from './Lightbox'
 
-export default LightBox
+export default Lightbox

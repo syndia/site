@@ -12,7 +12,6 @@ import {
 import {
   compose,
   defaultProps,
-  mapProps,
   setDisplayName,
   setPropTypes,
   withHandlers,
@@ -25,7 +24,7 @@ import {
 /**
  * Internal dependencies
  */
-import RootChild from '../RootChild'
+//import RootChild from '../RootChild'
 
 /**
  * Module dependencies
