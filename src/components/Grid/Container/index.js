@@ -50,7 +50,7 @@ export default compose(
     justifyItems, justifyContent,
     alignItems, alignContent,
     tracks,
-    //root, setRootElement,
+    root, // setRootElement,
     className, ...rest,
   } ) => {
     const classes = cx( {
