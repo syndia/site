@@ -37,8 +37,8 @@ const Portfolio= () => (
     <div className={ styles.heading }>
       <h6>FAUCIBUS LUCTUS ET ULTRICES</h6>
       <h2>
-        Don’t miss <em>your chance </em>to<br />
-        discover the most fascinating projects<em>&nbsp;for our clients</em>
+        Mis <em>jouw kans</em> niet om de meest<br />
+        fascinerende projecten voor <em>onze klanten</em> te ontdekken
       </h2>
       <p>Integer bibendum sapien consequat tincidunt luctus. Praesent sollicitudin nisi ut nunc placerat, et cursus orci rutrum. Praesent sed arcu sodales, egestas lectus at, egestas massa. Donec laoreet id tellus sed cursus. Aenean neque nibh, consequat vitae placerat.</p>
     </div>
@@ -60,7 +60,7 @@ const Portfolio= () => (
     />
 
     <footer>
-      <Button secondary grey fill>View all my works</Button>
+      <Button secondary grey fill>Bekijk al mijn werken</Button>
     </footer>
   </Track>
 )

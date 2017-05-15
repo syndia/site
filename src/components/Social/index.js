@@ -67,7 +67,7 @@ const SocialList = ( { metadata: { pkg } } ) => (
           url={ `https://twitter.com/${ pkg.twitter }` }
           icon={ createSvgIcon( twitterSvg ) }
         />
-        <p>{ "Follow @syndianl for web design & development articles, opinions and links" } </p>
+        <p>{ "Volg @syndianl voor webdesign & development artikelen, meningen en links" } </p>
       </li>
     }
     { pkg.repository &&
@@ -76,7 +76,7 @@ const SocialList = ( { metadata: { pkg } } ) => (
           url={ pkg.repository }
           icon={ createSvgIcon( gitHubSvg ) }
         />
-        <p>{ "View @syndia on GitHub for open-source projects" } </p>
+        <p>{ "Bekijk @syndia op GitHub voor open-source projecten" } </p>
       </li>
     }
     { pkg.linkedin &&
@@ -85,7 +85,7 @@ const SocialList = ( { metadata: { pkg } } ) => (
           url={ `https://linkedin.com/${ pkg.linkedin }` }
           icon={ createSvgIcon( linkedInSvg ) }
         />
-        <p>{ "View my LinkedIn profile" } </p>
+        <p>{ "Bekijk mijn LinkedIn profiel" } </p>
       </li>
     }
   </ul>
