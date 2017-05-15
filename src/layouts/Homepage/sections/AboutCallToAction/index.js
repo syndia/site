@@ -24,7 +24,7 @@ import styles from './index.css'
 const AboutCallToAction = () => (
   <Track className={ styles.cta } component="section" area="about__cta" align="auto" justify="auto">
     <Link to="about">
-      { "ABOUT SYNDIA " }
+      { "OVER SYNDIA " }
       <ChevronIcon size={ 22 } strokeWidth={ 3 } />
     </Link>
   </Track>

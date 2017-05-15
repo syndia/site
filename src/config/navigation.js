@@ -1,26 +1,26 @@
 export default {
-  About: {
+  Over: {
     href: 'about',
-    descriptions: 'Learn about John\'s skills and workflow',
+    descriptions: 'Leer meer over John\'s vaardigheden en workflow',
   },
   Portfolio: {
     href: '/',
-    descriptions: 'View John\'s web development work',
+    descriptions: 'Bekijk John\'s web development werk',
   },
-  Testimonials: {
+  Testimonium: {
     href: 'testimonials',
-    descriptions: 'Read client recommendations',
+    descriptions: 'Lees de aanbevelingen van de klant',
   },
-  Articles: {
+  Artikelen: {
     href: 'blog',
-    descriptions: 'Read web related articles, opinions & tutorials',
+    descriptions: 'Lees web-gerelateerde artikelen, adviezen en tutorials',
   },
   Contact: {
     href: 'contact',
-    descriptions: 'Send a general message',
+    descriptions: 'Stuur een algemeen bericht',
   },
-  'Hire John': {
+  'Huur John': {
     href: 'hire',
-    descriptions: 'Enquire about hiring John',
+    descriptions: 'Informeer over het huren van John',
   },
 }

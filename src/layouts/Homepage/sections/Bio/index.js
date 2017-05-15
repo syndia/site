@@ -21,13 +21,14 @@ import styles from './index.css'
 const Bio = () => (
   <Track className={ styles.bio } component="section" area="bio" align="auto" justify="auto">
     <p>
-      { "WordPress & Front-end Developer, John combines his education with 1 year commercial experience " }
-      { "in Wordpress & front-end development to produce high-quality websites and exceptional user experience." }
+      { "WordPress & Front-end Developer, John combineert zijn opleidingen met 1/2 jaar commerciële " }
+      { "ervaring in Wordpress en front-end ontwikkeling om hoogwaardige websites en uitzonderlijke " }
+      { "gebruikerservaring te produceren." }
       <br /><br />
       { "WordPress & Front-end Developer." }
       <br />
-      { "Available June 2017. " }
-      <Link to="hire"><strong>{ " Hire Now >>" }</strong></Link>
+      { "Beschikbaar vanaf juni 2017. " }
+      <Link to="hire"><strong>{ " Huur nu >>" }</strong></Link>
     </p>
   </Track>
 )
