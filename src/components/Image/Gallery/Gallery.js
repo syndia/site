@@ -19,6 +19,14 @@ import cx from 'classnames'
 /**
  * Internal dependencies
  */
+import {
+  withCollectionState,
+  withImagePreload,
+} from '../../../helpers'
+
+/**
+ * Module dependencies
+ */
 import Lightbox from '../Lightbox'
 import GalleryItem from './Item'
 
@@ -27,11 +35,11 @@ import GalleryItem from './Item'
  */
 import styles from './index.css'
 
-const createItemsList = ( { items, gap, height, openLightbox } ) => map( items, ( item, index ) => (
+const createImagesList = ( { images, gap, height, openLightbox } ) => map( images, ( image, index ) => (
   <GalleryItem
     key={ index }
     index={ index }
-    item={ item }
+    item={ image }
     gap={ gap }
     height={ height }
     openLightbox={ openLightbox }
@@ -39,9 +47,9 @@ const createItemsList = ( { items, gap, height, openLightbox } ) => map( items, 
 ) )
 
 const Gallery = ( {
-  currentItem, items,
+  currentItem, images,
   closeLightbox, lightboxState,
-  gotoNextItem, gotoPreviousItem, gotoItem,
+  getNextItem, getPreviousItem, getItem,
   handleClickItem,
   showThumbnails,
   className, ...rest
@@ -51,16 +59,16 @@ const Gallery = ( {
     className={ className }
   >
     <div className={ styles.collection }>
-      { createItemsList( { items, ...rest } ) }
+      { createImagesList( { images, ...rest } ) }
     </div>
     <Lightbox
       currentImage={ currentItem }
-      images={ items }
+      images={ images }
       isOpen={ lightboxState.isOpen }
       onClickImage={ handleClickItem }
-      onClickNext={ gotoNextItem }
-      onClickPrevious={ gotoPreviousItem }
-      onClickThumbnail={ gotoItem }
+      onClickNext={ getNextItem }
+      onClickPrevious={ getPreviousItem }
+      onClickThumbnail={ getItem }
       onClose={ closeLightbox }
       showThumbnails={ showThumbnails }
       showCloseButton
@@ -69,11 +77,11 @@ const Gallery = ( {
 )
 
 export default compose(
+  withImagePreload,
+  withCollectionState,
+
   // Lightbox state
   withState( 'lightboxState', 'setLightboxState', { isOpen: false, isOpening: false, timeout: null } ),
-
-  // Collection state
-  withState( 'currentItem', 'setCurrentItem', 0 ),
 
   defaultProps( {
     gap: { column: 0.5, row: 0.5, unit: 'rem' },
@@ -108,20 +116,15 @@ export default compose(
       clearTimeout( lightboxState.timeout )
       setLightboxState( { isOpen: false, isOpening: false, timeout: null } )
     },
-
-    // Collection handlers
-    gotoPreviousItem: ( { currentItem, setCurrentItem } ) => () => setCurrentItem( currentItem - 1 ),
-    gotoNextItem: ( { currentItem, setCurrentItem } ) => () => setCurrentItem( currentItem + 1 ),
-    gotoItem: ( { setCurrentItem } ) => index => setCurrentItem( index ),
   } ),
 
   withHandlers( {
     // Image handlers
-    handleClickItem: ( { currentItem, setCurrentItem, items, gotoNextItem } ) => () => {
-      if ( currentItem === items.length - 1 ) {
+    handleClickItem: ( { currentItem, setCurrentItem, images, getNextItem } ) => () => {
+      if ( currentItem === images.length - 1 ) {
         return
       }
-      gotoNextItem( { currentItem, setCurrentItem } )
+      getNextItem( { currentItem, setCurrentItem } )
     },
   } ),
   )( Gallery )

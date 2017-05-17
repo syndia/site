@@ -16,6 +16,7 @@ import {
 import {
   compose,
   lifecycle,
+  mapProps,
   setPropTypes,
   withHandlers,
   withProps,
@@ -24,13 +25,13 @@ import {
 /**
  * Internal dependencies
  */
-import Dialog from '../Dialog'
-import Figure from '../Figure'
-import Image from '../Image'
+import Dialog from '../../Dialog'
+import Figure from '../../Figure'
 
 /**
  * Module dependencies
  */
+import Image from '../Image'
 import Header from './Header'
 import NextButton from './NextButton'
 import PreviousButton from './PreviousButton'
@@ -76,6 +77,7 @@ const ImageCollection = ( {
 const Lightbox = ( {
   isOpen,
   gotoNext, gotoPrevious,
+  showNextButton, showPreviousButton,
   onClose, showCloseButton,
   ...rest
 } ) => (
@@ -92,8 +94,8 @@ const Lightbox = ( {
 
     <ImageCollection { ...rest } />
 
-    <NextButton white onClick={ gotoNext } className={ styles.nextButton } />
-    <PreviousButton white onClick={ gotoPrevious } className={ styles.previousButton } />
+    { showNextButton && <NextButton white onClick={ gotoNext } className={ styles.nextButton } /> }
+    { showPreviousButton && <PreviousButton white onClick={ gotoPrevious } className={ styles.previousButton } /> }
   </Dialog>
 )
 
@@ -109,9 +111,20 @@ export default compose(
       } ),
     ).isRequired,
   } ),
+  mapProps( props => {
+    const showNextButton = props.currentImage < props.images.length - 1
+    const showPreviousButton = props.currentImage > 0
+
+    return {
+      ...props,
+      showNextButton,
+      showPreviousButton,
+    }
+  } ),
   withProps( {
     isFullScreen: true,
   } ),
+
   withHandlers( {
     preloadImage: ( { images } ) => index => {
       const image = images[ index ]
