@@ -14,7 +14,7 @@ export default {
         span: 1,
       },
     },
-    portfolio: {
+    solutions: {
       column: {
         start: 1,
         end: 7,
@@ -22,8 +22,32 @@ export default {
       },
       row: {
         start: 2,
+        end: 3,
+        span: 1,
+      },
+    },
+    life: {
+      column: {
+        start: 1,
+        end: 7,
+        span: 6,
+      },
+      row: {
+        start: 3,
+        end: 4,
+        span: 1,
+      },
+    },
+    portfolio: {
+      column: {
+        start: 1,
+        end: 7,
+        span: 6,
+      },
+      row: {
+        start: 4,
         end: 5,
-        span: 3,
+        span: 1,
       },
     },
     about__cta: {

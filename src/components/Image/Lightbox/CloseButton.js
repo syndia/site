@@ -13,12 +13,8 @@ import {
  */
 import {
   XIcon,
-} from '../Svg/Icon'
-
-/**
- * Module dependencies
- */
-import Button from '../Button'
+} from '../../Svg/Icon'
+import Button from '../../Button'
 
 export default compose(
   setDisplayName( 'LightboxCloseButton' ),

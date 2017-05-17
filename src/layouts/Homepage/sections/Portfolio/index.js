@@ -13,7 +13,9 @@ import {
 } from '../../../../components/Grid'
 import Logo from '../../../../components/Logo'
 import Button from '../../../../components/Button'
-import Gallery from '../../../../components/Gallery'
+import {
+  ImageGallery,
+} from '../../../../components//Image'
 
 /**
  * Module dependencies
@@ -43,9 +45,9 @@ const Portfolio= () => (
       <p>Integer bibendum sapien consequat tincidunt luctus. Praesent sollicitudin nisi ut nunc placerat, et cursus orci rutrum. Praesent sed arcu sodales, egestas lectus at, egestas massa. Donec laoreet id tellus sed cursus. Aenean neque nibh, consequat vitae placerat.</p>
     </div>
 
-    <Gallery
+    <ImageGallery
       className={ styles.gallery }
-      items={ images.map( ( { caption, id, orientation } ) => ( {
+      images={ images.map( ( { caption, id, orientation } ) => ( {
         src: createUnsplahSource( id ),
         thumbnail: createUnsplahThumbnail( id, orientation ),
         srcset: [

@@ -6,9 +6,10 @@
 import React from 'react'
 
 /**
- * Internal dependencies
+ * Module dependencies
  */
 import CloseButton from './CloseButton'
+
 /**
  * Style dependencies
  */
