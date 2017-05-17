@@ -19,8 +19,8 @@ import Button from '../../Button'
 export default compose(
   setDisplayName( 'LightboxNextButton' ),
   withProps( {
-    transparent: true,
     svg: true,
+    transparent: true,
     children: <ChevronIcon size={ 32 } right />,
   } ),
 )( Button )

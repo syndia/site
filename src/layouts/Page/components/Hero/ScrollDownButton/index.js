@@ -2,6 +2,11 @@
  * External dependencies
  */
 import React from 'react'
+import {
+  compose,
+  setDisplayName,
+  withProps,
+} from 'recompose'
 
 /**
  * Internal dependencies
@@ -18,10 +23,14 @@ import {
  */
 import styles from './index.css'
 
-const ScrollDownButton = () => (
-  <ScrollButton className={ styles.scrollDownButton } to="content">
-    <ChevronIcon down size={ 32 } strokeWidth={ 1.5 } />
-  </ScrollButton>
-)
-
-export default ScrollDownButton
+export default compose(
+  setDisplayName( 'ScrollDownButton' ),
+  withProps( {
+    to: 'content',
+    className: styles.scrollDownButton,
+    white: true,
+    transparent: true,
+    svg: true,
+    children: <ChevronIcon down size={ 32 } strokeWidth={ 1.5 } />,
+  } ),
+)( ScrollButton )

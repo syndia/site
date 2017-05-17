@@ -43,6 +43,9 @@ export default compose(
     }
   } ),
   withProps( {
+    svg: true,
+    transparent: true,
+    white: true,
     children: <ChevronIcon left size={ 24 } strokeWidth={ 1.5 } />,
   } ),
 )( Button )
