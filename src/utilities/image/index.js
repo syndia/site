@@ -48,8 +48,10 @@ export const loadImage = source => {
         }, 50)
       }
     } else {
-      image.addEventListener('load', handleSuccess, false)
-      image.addEventListener('error', handleError, false)
+      if (canUseDom()) {
+        image.addEventListener('load', handleSuccess, false)
+        image.addEventListener('error', handleError, false)
+      }
     }
   })
 }
