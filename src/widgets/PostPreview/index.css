@@ -1,0 +1,82 @@
+.root {
+  display: flex;
+  grid-column-start: auto;
+  grid-column-end: auto;
+  grid-row-start: auto;
+  justify-self: auto;
+  align-self: auto;
+  padding: 1rem;
+  font-size: .875rem;
+  text-decoration: none;
+  user-select: none;
+  background-color: transparent;
+  color: color(var(--colorText)) !important;
+  transition: background-color .35s ease-in-out;
+  &:hover {
+    background-color: initial;
+    border-color: transparent !important;
+  }
+  &.simple {
+    padding: 0 .5rem 1rem .5rem;
+  }
+  &.simple:hover {
+    background-color: #f7f7f7;
+
+    & .title {
+      color: color(black);
+    }
+  }
+}
+
+.preview {
+  width: 100%;
+  font-size: .875rem;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: .875rem;
+  opacity: .6;
+}
+
+.title {
+  margin: .3rem 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  word-wrap: break-word;
+  color: #404040;
+}
+
+.description {
+  margin: .3rem 0;
+  color: #b2b2b2;
+}
+
+.more {
+  position: relative;
+  top: 2rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 2px solid color(white);
+  color: color(white);
+}
+
+.featured {
+  & .title {
+    font-size: 1rem;
+    color: white;
+  }
+
+  &:not(.simple) .title {
+    line-height: 1;
+    font-size: 3rem;
+  }
+}
+
+.simple {
+  & .description {
+    font-size: .75rem;
+  }
+}

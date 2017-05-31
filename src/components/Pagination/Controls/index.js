@@ -20,7 +20,8 @@ import {
 /**
  * Internal dependencies
  */
-import Button, { ButtonGroup } from '../../Button'
+import { Button } from '../../../internals/Button'
+import { ButtonGroup } from '../../../internals/ButtonGroup'
 
 const getRange = ( offset, total ) => {
   const min = offset - 3
@@ -32,7 +33,7 @@ const getRange = ( offset, total ) => {
 const Item = flow(
   pure,
   mapProps( props => omit( props, 'offset', 'pagination', 'setPagination', 'updatePagination', 'entityType' ) ),
-  withProps( { Component: Button } ),
+  withProps( { Component: Button, transparent: true, currentColor: true } ),
   withHandlers( {
     onClick: ( { updatePagination, offset } ) => () => updatePagination( { offset } )
   } ),

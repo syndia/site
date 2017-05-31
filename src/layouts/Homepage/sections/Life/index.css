@@ -1,26 +1,16 @@
 .life {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
   min-height: 100vh;
-  text-align: right;
-  background: color(var(--colorNeutral) l(90));
+  text-align: left;
+  background: color(var(--colorNeutral) l(90)) url('/assets/syndia_bg_02.jpg') no-repeat 0% 110%;
+  background-size: 70%;
   overflow: hidden;
 
   & h2,
   & h6,
   & p,
-  & ul {
-    width: calc( 100vw - 5% );
-    margin: 0 auto 1rem;
-  }
-
-  & h6 {
-    font-size: 0.75em;
-    letter-spacing: 1px;
-    color: color(grey l( 60));
+  & ul,
+  & li {
+    padding-left: 48%;
   }
 
   & p {
@@ -44,9 +34,5 @@
       content: "•";
       color: color(var(--colorNeutral));
     }
-  }
-
-  & em {
-    font-family:'Merriweather', Georgia, 'Times New Roman', Times, serif;
   }
 }

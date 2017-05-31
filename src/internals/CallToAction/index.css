@@ -1,0 +1,36 @@
+.root {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.info {
+  flex-grow: 1;
+  line-height: 1.4;
+  width: 100%;
+}
+
+.title,
+.description,
+.list {
+  color: color(white);
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.description {
+  font-weight: .875rem;
+  margin-top: .2rem;
+}
+
+.action {
+  align-self: center;
+  width: 100%;
+  margin: .5rem 0 0;
+  text-align: left;
+  font-size: .875rem;
+}

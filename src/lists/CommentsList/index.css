@@ -1,0 +1,26 @@
+.root {
+  clear: both;
+  margin: 2rem 0 0;
+  padding-top: .875rem;
+  border-top: 1px solid var(--colorGrayLightest);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 1.5rem -1.5rem 0;
+  overflow: auto;
+  font-size: .875rem;
+
+  &.isNoComments {
+    display: none;
+  }
+}
+
+.earlier {
+  display: block !important;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--colorGrayLight);
+}

@@ -5,34 +5,26 @@
  */
 import React from 'react'
 import {
-  compose,
-  lifecycle,
-  mapProps,
-  setDisplayName,
-  withProps,
-  withState,
+  compose, lifecycle, mapProps, setDisplayName,
+  withProps, withState,
 } from 'recompose'
-import {
-  omit,
-} from 'lodash'
+import { omit } from 'lodash'
 
 /**
  * Internal dependencies
  */
-import {
-  getCollectionContext,
-} from '../../helpers/phenomic/collection-context'
-import PaginationContainer from '../../components/Pagination'
+import { getCollectionContext } from '../../helpers/phenomic/collection-context'
+import { withMetaData } from '../../helpers/with-meta'
+import { FeaturedPostsList } from '../../lists/FeaturedPostsList'
 import Page from '../Page'
 
 /**
  * Module dependencies
  */
-import Header from './components/Header'
+import { ResultsLayout } from './ResultsLayout'
 import Footer from './components/Footer'
-import Sidebar from './components/Sidebar'
-import PostsList from './components/PostsList'
-import LatestPosts from '../../components/LatestPosts'
+
+import config from './config'
 import tracks from './tracks'
 
 const initialState = {
@@ -42,7 +34,8 @@ const initialState = {
   loading: true,
 }
 
-const enhance = compose(
+const HOC = compose(
+  withMetaData,
   getCollectionContext,
 
   setDisplayName( 'Blog' ),
@@ -51,10 +44,10 @@ const enhance = compose(
     filter: { layout: 'Post' },
     sort: 'date',
     reverse: true,
-    fetchData: ( { getCollection, setState, ...rest } ) => {
+    fetchData: ( { metadata, getCollection, setState, ...rest } ) => {
       setState( state => ( { ...state, loading: true } ) )
-      const posts = getCollection( { ...rest } )
-      setState( () => ( { data: { posts, pagination: { total: posts.length } }, loading: false } ) )
+      const posts = getCollection( { start: metadata.offset, offset: metadata.offset + metadata.limit, ...rest } )
+      setState( () => ( { data: { posts, metadata: { ...metadata, total: posts.length } }, loading: false } ) )
     }
   } ),
   lifecycle( {
@@ -63,36 +56,31 @@ const enhance = compose(
     }
   } ),
   mapProps( props => omit( props,
-    'filter', 'sort', 'reverse', 'start', 'offset',
+    'filter', 'sort', 'reverse',
     'setState', 'fetchData',
     'collection', 'getCollection',
   ) ),
 )
 
-const Blog = ( { head, state, ...props } ) => {
+const Blog = ( { head, metadata, state, ...props } ) => {
   const rest = props
-  const { data, loading } = state
+  const { data } = state
 
   return (
     <Page
       { ...rest }
       head={ head }
       tracks={ tracks }
-      header={ <Header /> }
-      sidebar={ <Sidebar /> }
       footer={ <Footer /> }
     >
-      <PaginationContainer
-        total={ data.pagination && data.pagination.total }
-        onChange={ pageInfo => props.fetchData( { ...rest, ...pageInfo } ) }
-        entityType="Articles"
-        isLoading={ loading }
-      >
-        { data.posts && <PostsList posts={ data.posts } /> }
-      </PaginationContainer>
-      <LatestPosts />
+      <FeaturedPostsList
+        filter={ item => item.layout === 'Post' && item.featured === true }
+        limit={ 4 }
+        config={ config }
+      />
+      { data.posts && <ResultsLayout metadata={ metadata } items={ data.posts } config={ config } /> }
     </Page>
   )
 }
 
-export default enhance( Blog )
+export default HOC( Blog )

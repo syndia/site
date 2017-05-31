@@ -24,7 +24,7 @@ const createShapes = ( strokeWidth = 2 ) => {
       ],
       [
         [ 8, 0 ],
-        [ 16, 8 ],
+        [ 8, 16 ],
     ] ],
     minus: [ [
         [ 0, 8 ],

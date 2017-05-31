@@ -45,4 +45,11 @@
   position: absolute;
   top: 50vh;
   left: 3em;
+
+  color: color(white) !important;
+  opacity: .6;
+
+  &:hover {
+    opacity: 1;
+  }
 }

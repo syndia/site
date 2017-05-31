@@ -1,0 +1,33 @@
+.wrapper {
+  font-size: 0;
+  line-height: 0;
+}
+
+@supports(display: flex) {
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    line-height: inherit;
+    font-size: inherit;
+  }
+  .track {
+    display: block;
+  }
+}
+
+@for $i from 1 to 12 {
+  .track-$i {
+    width: calc(100 / 12 * $i)%;
+  }
+}
+
+@supports(display: grid) {
+  .wrapper {
+    display: grid;
+    grid-auto-rows: minmax(100px, auto);
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}

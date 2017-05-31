@@ -1,0 +1,39 @@
+:root {
+  @custom-media --maxWidthPhone (width < 481px);
+  @custom-media --maxWidthTablet (width <= 960px);
+
+  --centered: {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.root {
+  @apply --centered;
+
+  position: relative;
+  min-height: 100vh;
+  padding: 5% 0;
+  overflow: hidden;
+
+  & > * {
+    width: calc( 100vw - 5% );
+    margin: 0 auto;
+  }
+
+  & h6 {
+    font-size: 0.75em;
+    letter-spacing: 1px;
+    color: color(grey l( 60));
+  }
+
+  & em {
+    font-family:'Merriweather', Georgia, 'Times New Roman', Times, serif;
+  }
+}
+
+.headline {
+  text-transform: uppercase;
+}

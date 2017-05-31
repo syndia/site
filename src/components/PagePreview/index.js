@@ -17,7 +17,7 @@ import {
 import Button from '../../components/Button'
 import {
   DateComponent,
-} from '../../components/DateTime'
+} from '../../internals/DateTime'
 
 /**
  * Module dependencies

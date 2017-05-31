@@ -17,9 +17,7 @@ import Page from '../Page'
 import {
   Main,
 } from '../../components/Section'
-import {
-  GoBackButton,
-} from '../../components/Button'
+import { GoBackButton } from '../../internals/GoBack'
 
 /**
  * Module dependencies

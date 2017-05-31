@@ -1,90 +1,43 @@
-/* eslint-disable react/prop-types */
-
-/**
- * External dependencies
- */
 import React from 'react'
-import {
-  branch,
-  compose,
-  renderComponent,
-} from 'recompose'
-import Svg from 'react-svg-inline'
+import { branch, compose, mapProps, renderComponent } from 'recompose'
+import cx from 'classnames'
 
+import { getMetaDataContext } from '../../helpers/phenomic'
+import { SocialItem } from '../../internals/Social/Item'
 
-/**
- * Internal dependencies
- */
-import {
-  getMetaDataContext,
-} from '../../helpers/phenomic'
-import twitterSvg from './icons/iconmonstr-twitter-1.svg'
-import gitHubSvg from './icons/iconmonstr-github-1.svg'
-import linkedInSvg from './icons/iconmonstr-linkedin-3.svg'
+import styles from './index.css'
 
-const createSvgIcon = icon => (
-  <Svg svg={ icon } cleanup />
-)
-
-const SocialLink = ( { url, target = '_blank', icon, name } ) => (
-  <a href={ url } target={ target } title={ name }>
-    { icon }
-    { name }
-  </a>
-)
-
-const SocialLinks = ( { metadata: { pkg }, className } ) => (
+const SocialLinks = ({ metadata: { pkg }, className }) => (
   <div className={ className }>
     { pkg.twitter &&
-      <SocialLink
-        url={ `https://twitter.com/${ pkg.twitter }` }
-        icon={ createSvgIcon( twitterSvg ) }
-        name="Twitter"
-      />
+      <SocialItem link={ `https://twitter.com/${ pkg.twitter }` } showName />
     }
     { pkg.repository &&
-      <SocialLink
-        url={ pkg.repository }
-        icon={ createSvgIcon( gitHubSvg ) }
-        name="GitHub"
-      />
+      <SocialItem link={ pkg.repository } showName />
     }
     { pkg.linkedin &&
-      <SocialLink
-        url={ `https://linkedin.com/${ pkg.linkedin }` }
-        icon={ createSvgIcon( linkedInSvg ) }
-        name="LinkedIn"
-      />
+      <SocialItem link={ `https://linkedin.com/${ pkg.linkedin }` } showName />
     }
   </div>
 )
 
-const SocialList = ( { metadata: { pkg } } ) => (
-  <ul>
+const SocialList = ({ metadata: { pkg }, className }) => (
+  <ul className={ className }>
     { pkg.twitter &&
       <li>
-        <SocialLink
-          url={ `https://twitter.com/${ pkg.twitter }` }
-          icon={ createSvgIcon( twitterSvg ) }
-        />
+        <SocialItem link={ `https://twitter.com/${ pkg.twitter }` } />
         <p>{ "Volg @syndianl voor webdesign & development artikelen, meningen en links" } </p>
       </li>
     }
     { pkg.repository &&
       <li>
-        <SocialLink
-          url={ pkg.repository }
-          icon={ createSvgIcon( gitHubSvg ) }
-        />
+        <SocialItem link={ pkg.repository } />
         <p>{ "Bekijk @syndia op GitHub voor open-source projecten" } </p>
       </li>
     }
     { pkg.linkedin &&
       <li>
-        <SocialLink
-          url={ `https://linkedin.com/${ pkg.linkedin }` }
-          icon={ createSvgIcon( linkedInSvg ) }
-        />
+        <SocialItem link={ `https://linkedin.com/${ pkg.linkedin }` } />
         <p>{ "Bekijk mijn LinkedIn profiel" } </p>
       </li>
     }
@@ -93,9 +46,18 @@ const SocialList = ( { metadata: { pkg } } ) => (
 
 export default compose(
   getMetaDataContext,
+
+  mapProps(({ className, ...rest }) => ({
+    ...rest,
+    className: cx({
+      [className]: className,
+      [styles.root]: true,
+    })
+  })),
+
   branch(
-    ( { list } ) => list,
-    renderComponent( SocialList ),
-    renderComponent( SocialLinks ),
+    ({ list }) => list,
+    renderComponent(SocialList),
+    renderComponent(SocialLinks),
   )
-)( SocialLinks || SocialList )
+)(SocialLinks || SocialList)

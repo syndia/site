@@ -15,7 +15,7 @@ import cx from 'classnames'
  */
 import styles from './index.css'
 
-const enhance = compose(
+const HOC = compose(
   defaultProps( {
     instanceId: 0,
     size: 16,
@@ -81,4 +81,4 @@ const Spinner = ( { instanceId, size, ...rest } ) => (
   </svg>
 )
 
-export default enhance( Spinner )
+export default HOC(Spinner)

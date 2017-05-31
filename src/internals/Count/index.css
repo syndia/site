@@ -1,0 +1,11 @@
+.root {
+  display: inline-block;
+  padding: 1px .5rem;
+  border: 1px solid color(var(--colorGreyDark));
+  border-radius: .75rem;
+  line-height: 1;
+  font-size: .875rem;
+  font-weight: 600;
+  text-align: center;
+  color: color(var(--colorGreyDark));
+}

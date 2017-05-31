@@ -25,7 +25,12 @@ const initialState = {
 const withPagination = InnerComponent => compose(
   withState( 'pagination', 'setPagination', initialState ),
   withHandlers( {
-    updatePagination: ( { pagination, setPagination, first, offset } ) => () => setPagination( { ...pagination, first, offset } )
+    updatePagination: ( {
+      pagination,
+      setPagination,
+      first,
+      offset
+    } ) => () => setPagination( { ...pagination, first, offset } )
   } ),
 )( InnerComponent )
 

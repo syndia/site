@@ -14,34 +14,18 @@ import {
 } from 'grid-template-parser'
 
 /**
- * Internal dependencies
- */
-/*
-import {
-  withBounds,
-} from '../../../helpers'
-*/
-
-/**
- * Module dependencies
- */
-//import Track from './Track'
-
-/**
  * Style dependencies
  */
 import styles from './index.css'
 
 export default compose(
-  //withBounds( 'root', 'setRootElement' ),
-  //withBounds( 'screen' ),
-
   setDisplayName( 'GridContainer' ),
+
   defaultProps( {
     component: 'div',
     height: 'auto',
   } ),
-  //mapProps( props => omit( props, [ 'screen', 'boundsElement' ] ) ),
+
   mapProps( ( {
     grid,
     templateRows, templateColumns, templateAreas,
@@ -50,7 +34,6 @@ export default compose(
     justifyItems, justifyContent,
     alignItems, alignContent,
     tracks,
-    root, // setRootElement,
     className, ...rest,
   } ) => {
     const classes = cx( {
@@ -58,18 +41,8 @@ export default compose(
       [ styles.grid ]: true,
     } )
 
-    const cache = tracks
-
-    if ( cache && cache.bigScreen ) {
-      if ( root && root.width > 500 ) {
-        tracks = cache.bigScreen
-      } else {
-        tracks = cache.smallScreen
-      }
-    }
-
     const gridTemplateRows = /* tracks && `repeat(${ tracks.height }, 1fr)` || */ templateRows
-    const gridTemplateColumns = tracks && `repeat(${ tracks.width }, 1fr)` || templateColumns
+    const gridTemplateColumns = tracks && `repeat(${  tracks.width }, 1fr)` || templateColumns
     const gridTemplateAreas = tracks && template( tracks ) || templateAreas
 
     const style = {
@@ -92,7 +65,6 @@ export default compose(
     return {
       ...rest,
       className: classes,
-      //ref: setRootElement,
       style,
     }
   } ),

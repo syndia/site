@@ -17,9 +17,7 @@ import cx from 'classnames'
 /**
  * Module dependencies
  */
-import {
-  getButtonGroupContext,
-} from '../ButtonGroup/context'
+
 import withPropTypes from './prop-types'
 
 /**
@@ -28,7 +26,6 @@ import withPropTypes from './prop-types'
 import styles from './index.css'
 
 const enhance = compose(
-  getButtonGroupContext,
   setDisplayName( 'Button' ),
   withPropTypes,
   defaultProps( {
@@ -36,8 +33,8 @@ const enhance = compose(
   } ),
   mapProps( props => omit( props, 'buttonGroup' ) ),
   mapProps( ( {
-    primary, secondary, big, transparent, light, fill, svg,
-    black, grey, white,
+    primary, secondary, big, svg,
+    currentColor, transparent ,black, grey, white,
     className, children, ...rest,
   } ) => {
     const classes = cx( {
@@ -51,8 +48,7 @@ const enhance = compose(
       [ styles.white ]: white,
       [ styles.transparent ]: transparent,
       [ styles.big ]: big,
-      [ styles.light ]: light,
-      [ styles.fill ]: fill,
+      [ styles.currentColor ]: currentColor,
     } )
 
     return {

@@ -1,0 +1,29 @@
+:root {
+  @custom-media --maxWidthPhone (width <= 480px);
+  @custom-media --maxWidthTablet (width <= 960px);
+}
+
+.root {
+  @media (--maxWidthPhone) {
+    & {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    & a {
+      padding: 0 auto;
+    }
+
+    & p {
+      display: none;
+    }
+
+    & svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

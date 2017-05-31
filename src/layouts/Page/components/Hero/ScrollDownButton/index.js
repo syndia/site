@@ -11,12 +11,9 @@ import {
 /**
  * Internal dependencies
  */
-import {
-  ScrollButton,
-} from '../../../../../components/Button'
-import {
-  ChevronIcon,
-} from '../../../../../components/Svg/Icon'
+import { ScrollButton } from '../../../../../internals/ScrollButton'
+import { INCOGNITO } from '../../../../../internals/Button/kinds'
+import { ChevronIcon } from '../../../../../components/Svg/Icon'
 
 /**
  * Module dependencies
@@ -28,9 +25,7 @@ export default compose(
   withProps( {
     to: 'content',
     className: styles.scrollDownButton,
-    white: true,
-    transparent: true,
-    svg: true,
+    kind: INCOGNITO,
     children: <ChevronIcon down size={ 32 } strokeWidth={ 1.5 } />,
   } ),
 )( ScrollButton )

@@ -13,18 +13,8 @@ import {
 } from 'lodash'
 import warning from 'warning'
 
-const getScrollTop = () =>
-  document.documentElement.scrollTop || document.body.scrollTop
-const setScrollTop = position =>
-  document.documentElement.scrollTop = document.body.scrollTop = position
-const getOffsetTop = element => {
-  const { top } = element.getBoundingClientRect()
-  return top + getScrollTop()
-}
-
-const easeOutQuad = ( x, t, b, c, d ) => {
-  return -c * ( t /= d ) * (  t - 2 ) + b
-}
+import { easeOutQuad } from '../utilities/animate/animations'
+import { getOffsetTop, getScrollTop, setScrollTop } from '../utilities/scroll'
 
 const scrollTo = ( element, { offset, duration, easing } ) => {
   const start = getScrollTop()
@@ -74,5 +64,5 @@ export default compose(
   defaultProps,
   withHandlers( { onClick } ),
   mapProps( props => omit( props, 'animate', 'afterAnimation', 'beforeAnimation' ) ),
-  mapProps( ( { to, ...rest } ) => ( { ...rest, to: `#${ to.replace( /^#/, '' ) }` } ) ),
+  mapProps( ( { to, ...rest } ) => ( { ...rest, href: `#${ to.replace( /^#/, '' ) }` } ) ),
 )

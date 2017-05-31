@@ -1,26 +1,13 @@
 .solutions {
-  position: relative;
-  display: flex;
-  flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
-  min-height: 100vh;
   text-align: left;
-  background: color(white a(50%));
-  overflow: hidden;
+  background: color(white a(50%)) url('/assets/syndia_bg_01.jpg') no-repeat 92% 50%;
+  background-size: 70%;
 
-  & h2,
-  & h6,
+  & header,
   & p,
   & ul {
-    width: calc( 100vw - 5% );
-    margin: 0 auto 1rem;
-  }
-
-  & h6 {
-    font-size: 0.75em;
-    letter-spacing: 1px;
-    color: color(grey l( 60));
+    padding-right: 48%;
   }
 
   & p {
@@ -45,9 +32,5 @@
       content: "•";
       color: color(var(--colorNeutral));
     }
-  }
-
-  & em {
-    font-family:'Merriweather', Georgia, 'Times New Roman', Times, serif;
   }
 }
