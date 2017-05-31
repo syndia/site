@@ -27,7 +27,7 @@ const HOC = compose(
   withProps({
     headingLevel: 1,
     title: "Mis <em>jouw kans</em> niet om de meest<br />fascinerende projecten voor <em>onze klanten</em> te ontdekken",
-    headline: "FAUCIBUS LUCTUS ET ULTRICES",
+    headline: "fascinerende projecten",
   }),
 )
 
