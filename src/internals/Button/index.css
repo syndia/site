@@ -1,0 +1,55 @@
+.reset {
+  display: inline-block;
+  zoom: 1;
+  line-height: normal;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-drag: none;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.root {
+  display: inline-flex;
+  padding: .5rem .75rem;
+  line-height: 2;
+  border: none;
+  font-size: .875rem;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  transition: .2s all;
+
+  color: color(white);
+
+  @media print {
+    display: none;
+  }
+
+  &:hover {
+    background: color(var(--colorPrimary));
+    color: color(white);
+  }
+}
+
+.disabled {
+  cursor: inherit;
+}
+
+.incognito {
+  background-color: transparent !important;
+  color: inherit;
+  outline: none;
+}
+
+.transparent {
+  border: 2px solid color(var(--colorGrayDarker));
+  background-color: transparent;
+  color: color(var(--colorGrayDarker));
+
+  &:hover {
+    border-color: color(var(--colorPrimary));
+  }
+}

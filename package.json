@@ -84,7 +84,10 @@
       "es6": true
     },
     "root": true,
-    "extends": "./node_modules/phenomic/lib/eslint-config-recommended/index.js"
+    "extends": "./node_modules/phenomic/lib/eslint-config-recommended/index.js",
+    "rules": {
+      "react/prop-types": 0
+    }
   },
   "stylelint": {
     "extends": "./node_modules/phenomic/lib/stylelint-config-recommended/index.js"

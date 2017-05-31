@@ -3,16 +3,12 @@
   position: absolute;
   left: calc(100vw / 2 - 1rem);
   bottom: 3rem;
-  border: none !important;
-  color: white !important;
-  background-color: transparent;
+  color: color(white);
   opacity: .7;
   z-index: 100;
   animation: bounce 4s 2s infinite;
 
     &:hover {
-        color: inherit;
-        background-color: transparent;
         opacity: 1;
         animation: none;
     }

@@ -11,14 +11,15 @@ cta:
       link: "about"
       props:
         big: true
-        secondary: true
-        light: true
+        primary: true
+        white: true
+        transparent: true
     - label: Huur me in
       link: "hire"
       props:
         big: true
         primary: true
-        light: true
+        white: true
 ---
 
 ## Ik ben een creatieve website ontwerper, enthousiast over nieuwe ervaringen, ga graag op reis en het ontdekken van nieuwe plekken. Ik ben gespecialiseerd in UI / UX design, illustratie en merkidentiteit om de beste service voor mijn klanten te bieden.

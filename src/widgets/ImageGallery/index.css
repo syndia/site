@@ -1,0 +1,18 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 100vw;
+  margin: 1rem 0;
+  padding: 0 3rem;
+
+  & a {
+    width: 100%;
+  }
+
+  & img {
+    margin: 0;
+  }
+}

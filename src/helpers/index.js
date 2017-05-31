@@ -1,24 +1,28 @@
 /**
  * Module dependencies
  */
-import withBackLink from './with-back-link'
-// import withBounds from './with-bounds'
+import withBounds from './with-bounds'
 import withCollectionState from './with-collection-state'
+import withConfig from './with-config'
+import withHooks from './with-hooks'
 import withHover from './with-hover'
-//import withImageColors from './with-image-colors'
+// import withImageColors from './with-image-colors'
 import withImagePreload from './with-image-preload'
 import withLoadingState from './with-loading-state'
+import withPagination from './with-pagination'
 import withPlaceholdIt from './with-placehold-it'
 import withScrollAnimation from './with-scroll-animation'
 
 export {
-  withBackLink,
-  // withBounds,
+  withBounds,
   withCollectionState,
+  withConfig,
+  withHooks,
   withHover,
   // withImageColors,
   withImagePreload,
   withLoadingState,
+  withPagination,
   withPlaceholdIt,
   withScrollAnimation,
 }

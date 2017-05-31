@@ -4,6 +4,7 @@ authors:
   - phenomic
 title: First Post, no hero.
 layout: Post
+featured: true
 tags:
   - React
   - Tutorial

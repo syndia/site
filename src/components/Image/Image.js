@@ -3,46 +3,43 @@
 /**
  * External dependencies
  */
-import React from 'react'
+import { DOM } from 'react'
 import {
-  string,
-} from 'prop-types'
-import {
-  compose,
-  mapProps,
-  setPropTypes,
+  compose, lifecycle, mapProps,
+  onlyUpdateForKeys, pure, withState,
 } from 'recompose'
+import { omit } from 'lodash'
 import cx from 'classnames'
 
-/**
- * Internal dependencies
- */
+import { canUseDom } from '../../utilities/dom'
 
-const ImageElement = ( { hasError, ...rest } ) => {
-  if ( hasError ) {
-    return null
-  }
+import styles from './image.css'
 
-  return (
-    <img { ...rest } />
-  )
-}
+const ImageComponent = compose(
+  pure,
 
-export default compose(
-  setPropTypes( {
-    alt: string,
-    src: string,
-    srcSet: string,
-  } ),
-  mapProps( ( { className, index, ...rest } ) => {
-    const classes = cx( {
-      [ className ]: className
-    } )
+  withState('isLoading', 'setIsLoading', true),
+  withState('isMounted', 'setIsMounted', true),
 
-    return {
-      ...rest,
-      className: classes,
-      key: index && `image-${ index }`
+  lifecycle({
+    componentWillMount() {
+      const img = canUseDom() ? new Image() : {}
+      img.onload = () => this.props.isMounted && this.props.setIsLoading(false)
+    },
+    componentWillUnmount() {
+      this.props.setIsMounted(false)
     }
-  } ),
-)( ImageElement )
+  }),
+
+  mapProps(props => omit(props, ['placeholder', 'setIsLoading', 'isMounted', 'setIsMounted'])),
+  mapProps(({ index, isLoading, className, src, ...rest }) => ({
+    ...rest,
+    key: index && `image-${ index }`,
+    src: /* isLoading ? void 0 : */ src,
+    className: cx(className, isLoading && styles.loading || styles.loaded)
+  })),
+
+  onlyUpdateForKeys(['src']),
+)(DOM.img)
+
+export default ImageComponent

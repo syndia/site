@@ -11,28 +11,28 @@ import {
 /**
  * Internal dependencies
  */
+import { getMetaDataContext } from '../../../helpers/phenomic'
 import Navigation from '../../../components/Navigation'
-import {
-  getMetaDataContext,
-} from '../../../helpers/phenomic'
 import SocialLinks from '../../../components/Social'
+import { BurgerButton } from '../../../internals/BurgerButton'
 
 /**
  * Style dependencies
  */
 import styles from './index.css'
 
-const enhance = compose(
+const HOC = compose(
   getMetaDataContext,
 )
 
-const Header = () => (
+const Header = ({ onBurgerClick }) => (
   <header className={ styles.header }>
     <nav className={ styles.nav }>
+      <BurgerButton onClick={ onBurgerClick } />
       <Navigation className={ styles.navPart1 } />
       <SocialLinks className={ styles.navPart2 } />
     </nav>
   </header>
 )
 
-export default enhance( Header )
+export default HOC( Header )

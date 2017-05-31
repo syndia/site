@@ -1,0 +1,11 @@
+:root {
+  @custom-media --side-by-side (width > 860px)
+}
+
+.root {
+  height: 100%;
+
+  @media (--side-by-side) {
+    box-sizing: border-box;
+  }
+}

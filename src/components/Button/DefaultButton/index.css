@@ -44,17 +44,6 @@
   }
 }
 
-.light {
-  color: var(--colorNeutralLight);
-  border: 1px solid var(--colorNeutralLight);
-
-  &:hover {
-    color: var(--colorNeutralLight);
-    border: 1px solid var(--colorNeutralLight);
-    background: color(var(--colorNeutralLight) a(0.3));
-  }
-}
-
 .big {
   font-weight: 300;
   font-size: 1.5rem;
@@ -101,13 +90,24 @@
   background: color(white);
   color: color(white);
   border-color: color(white);
+
+  &:hover {
+    background: color(white);
+    color: color(white);
+    border-color: color(white);
+  }
+}
+
+.primary.big.white:not(.transparent) {
+  color: color(var(--colorPrimaryDark));
+  font-weight: 500;
 }
 
 .transparent {
   background: transparent !important;
 }
 
-.fill {
+.currentColor {
   color: inherit;
 }
 

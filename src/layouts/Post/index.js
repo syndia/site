@@ -11,9 +11,11 @@ import {
 /**
  * Internal dependencies
  */
+import config from '../../config'
 import {
   DateComponent,
-} from '../../components/DateTime'
+} from '../../internals/DateTime'
+import { CommentsList } from '../../lists/CommentsList'
 import LatestPosts from '../../components/LatestPosts'
 import Page from '../Page'
 
@@ -46,6 +48,7 @@ const Post = props => (
     }
   >
     <hr />
+    <CommentsList config={ config.comments } />
     <LatestPosts />
   </Page>
 )

@@ -1,0 +1,12 @@
+.root {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  margin: 0 auto;
+  user-select: none;
+  -webkit-touch-call-out: none;
+}
+
+.loading {}
+
+.loaded {}

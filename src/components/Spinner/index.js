@@ -12,6 +12,12 @@ import {
 } from 'recompose'
 import cx from 'classnames'
 
+import { isSVGCSSAnimationSupported } from '../../utilities/animate'
+
+import SVGSpinner from '../Svg/Spinner'
+
+import styles from './index.css'
+
 const defaultProps = setDefaultProps( {
   duration: 3000,
   size: 20,
@@ -20,6 +26,13 @@ const defaultProps = setDefaultProps( {
 
 const Spinner = ( { className } ) => (
   <div className={ className }>
+  </div>
+)
+
+const FallbackSpinner = ({ size, className }) => (
+  <div className={ cx({ [className]: className, [styles.root]: true }) } style={ { width: size, height: size } }>
+    <span className={ `${ styles.spinner__progress } is-left` } />
+    <span className={ `${ styles.spinner__progress } is-right` } />
   </div>
 )
 

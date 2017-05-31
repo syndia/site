@@ -19,8 +19,8 @@ import Button from '../../Button'
 export default compose(
   setDisplayName( 'LightboxCloseButton' ),
   withProps( {
-    transparent: true,
     svg: true,
+    transparent: true,
     children: <XIcon size={ 24 } strokeWidth={ 1 } />,
   } ),
 )( Button )

@@ -1,0 +1,6 @@
+.root {
+  display: flex;
+  border-left: 3px solid;
+  padding: 1rem 0.5rem;
+}
+
