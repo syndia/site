@@ -22,7 +22,7 @@ cta:
         white: true
 ---
 
-##  een creatieve website ontwerper, enthousiast over nieuwe ervaringen, ga graag op reis en het ontdekken van nieuwe plekken. Ik ben gespecialiseerd in UI / UX design, illustratie en merkidentiteit om de beste service voor mijn klanten te bieden.
+## Ik ben een creatieve website ontwerper, enthousiast over nieuwe ervaringen, ga graag op reis en het ontdekken van nieuwe plekken. Ik ben gespecialiseerd in UI / UX design, illustratie en merkidentiteit om de beste service voor mijn klanten te bieden.
 
 Phasellus congue sagittis congue. Aenean porttitor efficitur mi, eget sollicitudin orci ultrices vitae. Morbi ac justo sed ipsum pulvinar vestibulum ut et leo. Vivamus accumsan lectus sapien, venenatis accumsan velit pulvinar a. Pellentesque sit amet ipsum id velit rhoncus vehicula a sit amet enim.
 
